@@ -10,14 +10,58 @@
   .title {
     cursor: pointer;
   }
+  .txt_center {
+    text-align:center;
+  }
+  .txt_right {
+    padding-top:20px;text-align:right;
+  }
 </style>
 </head>
 <body>
 
 <div class="container">
-  <div id="display-list"></div>
-</div>
+  <div class="row">
+    <div class="col-md-3">
+      <div style="padding-top:20px;">
+        <a href="./jquery-handlebars-crud.html"><img src="./bower.png" alt="bower logo" width="100"/></a>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="txt_right">
+        <div class="btn-group" role="group" aria-label="...">
+          <button type="button" class="btn btn-default">회원가입</button>
+          <button type="button" class="btn btn-default">로그인</button>
+          <button type="button" class="btn btn-default">패밀리사이트</button>
+        </div>
+      </div>
 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <div>&nbsp;</div>
+      <div>&nbsp;</div>
+      <div>
+        <ul>
+          <li>메뉴1</li>
+          <li>메뉴2</li>
+          <li>메뉴3</li>
+          <li>메뉴4</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-10">
+      <div id="display-list"></div>
+    </div>
+  </div><!-- row -->
+  <div class="row">
+    <hr>
+    <div class="txt_center">
+    고정 헤더나 푸터를 사용한다면 그것들이 들어갈 공간을 마련해 줘야 합니다! 여기서는 body에 margin-bottom을 집어넣었습니다.
+    </div>
+  </div>
+</div> <!-- container -->
 
 <script src="/js/jquery/dist/jquery.min.js"></script>
 
@@ -63,7 +107,7 @@
     });
 
     //--- 글 상세 버튼 --//
-    $(document).on('click','td[data-num]', function(event) {
+    $(document).on('click','span[data-num]', function(event) {
       var indx = $(event.target).attr('data-num');
       var source2 = $("#template-detail").html();
       var template2 = Handlebars.compile(source2);
@@ -158,7 +202,7 @@
         {{#each .}}  
         <tr>  
             <td>{{num}}</td>  
-            <td class="title" data-num="{{num}}">{{title}}</td>  
+            <td><span class="title" data-num="{{num}}">{{title}}</span></td>  
             <td><a href="mailto:{{userEmail}}">{{userName}}</a></td> 
             <td>{{prettifyDate regDate}}</td> 
             <td>{{viewCount}}</td>  
@@ -182,7 +226,7 @@
 </nav>
 </div>
 
-<div style="text-align: right;">
+<div class="txt_right">
 <button class="btn btn-primary" name="btn-write">글쓰기</button>
 </div>
 
@@ -195,23 +239,23 @@
   <!-- table>tr>td{item$1}*5 -->
   <table class="table table-bordered">
     <tr>
-      <td style="text-align:right;"><label for="title">제목 : </label></td>
+      <td class="txt_right"><label for="title">제목 : </label></td>
       <td><input type="text" name="title" id="title" class="form-control"></td>
     </tr>
   <tr>
-    <td style="text-align:right;"><label for="userEmail">email : </label></td>
+    <td class="txt_right"><label for="userEmail">email : </label></td>
     <td><input type="text" name="userEmail" id="userEmail" class="form-control"></td>
   </tr>
   <tr>
-    <td style="text-align:right;"><label for="userName">작성자 : </label></td>
+    <td class="txt_right"><label for="userName">작성자 : </label></td>
     <td><input type="text" name="userName" id="userName" class="form-control"></td>
   </tr>
   <tr>
-    <td style="text-align:right;"><label for="content">내용 : </label></td>
+    <td class="txt_right"><label for="content">내용 : </label></td>
     <td><textarea name="content" id="content" rows="5" class="form-control"></textarea></td>
   </tr>
   </table>
-  <div style="text-align:right;">
+  <div class="txt_right">
     <button class="btn btn-default" name="btn-list" style="float:left;">목록</button>
     <button class="btn btn-primary" name="btn-save">저 장</button>
   </div>
@@ -225,7 +269,7 @@
   <hr/>
   <p>{{content}}</p>
   <hr/>
-  <div style="text-align:right;">
+  <div class="txt_right">
     <button class="btn btn-default" name="btn-list" style="float:left;">목록</button>
     <button class="btn btn-primary" name="btn-modify" data-num="{{num}}">수정</button>
   </div>
@@ -237,23 +281,23 @@
 <h1>수정폼</h1>
 <table class="table table-bordered">
   <tr>
-    <td style="text-align:right;"><label for="title">제목 : </label></td>
+    <td class="txt_right"><label for="title">제목 : </label></td>
     <td><input type="text" name="title" value="{{title}}" id="title" class="form-control"></td>
   </tr>
   <tr>
-    <td style="text-align:right;"><label for="userEmail">이메일 : </label></td>
+    <td class="txt_right"><label for="userEmail">이메일 : </label></td>
     <td><input type="text" name="userEmail" value="{{userEmail}}" id="userEmail" class="form-control"></td>
   </tr>
   <tr>
-    <td style="text-align:right;"><label for="userName">작성자 : </label></td>
+    <td class="txt_right"><label for="userName">작성자 : </label></td>
     <td><input type="text" name="userName" value="{{userName}}" id="userName" class="form-control"></td>
   </tr>
   <tr>
-    <td style="text-align:right;"><label for="content">내용 : </label></td>
+    <td class="txt_right"><label for="content">내용 : </label></td>
     <td><textarea name="content" id="content" rows="5" class="form-control">{{content}}</textarea></td>
   </tr>
 </table>
-<div style="text-align:right;">
+<div class="txt_right">
   <button class="btn btn-default" name="btn-list" style="float:left;">목록</button>
   <button class="btn btn-primary" name="btn-save">저장</button>
 </div>
