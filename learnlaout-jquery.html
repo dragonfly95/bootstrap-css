@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+<style>
+  dl {
+    line-height: 200%;
+  }
+  dl>dt {
+    float: left; width:80px;
+  }
+</style>
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+  $(document).ready(function() {
+    $('[name="valid_check"]').on('click', function() {
+      alert("이름 :: " + $('[name="frm"] [name="tname"]').val());
+      alert("핸드폰 :: " + $('[name="frm"] [name="ttelephone"]').val());
+      alert("집주소 :: " + $('[name="frm"] [name="taddr"]').val());
+
+      $('[name="frm"] [name="tname"]').val("홍길동");
+      $('[name="frm"] [name="ttelephone"]').val("010-41567-4564");
+      $('[name="frm"] [name="taddr"]').val("동해번쩍 서해번쪽");
+    });
+  });
+  
+</script>
+
+<form name="frm" action="">
+  <dl>
+    <dt>
+      <label for="tname">이름 : </label>
+    </dt>
+    <dd>
+      <input type="text" name="tname" value="" placeholder="이름을 입력해주세요." id="tname">
+    </dd>
+    <dt>
+      <label for="ttelephone">핸드폰 : </label>
+      
+    </dt>
+    <dd>
+      <input type="text" name="ttelephone" value="" placeholder="핸드폰" id="ttelephone">
+    </dd>
+    <dt>
+      <label for="taddr">집주소 : </label>
+    </dt>
+    <dd>
+      <input type="text" name="taddr" value="" placeholder="집주소는?" id="taddr">
+    </dd>
+    <dt></dt>
+    <dd>
+      <input type="button" name="valid_check" value="validate check ">
+    </dd>
+  </dl>
+</form>
+</body>
+</html>

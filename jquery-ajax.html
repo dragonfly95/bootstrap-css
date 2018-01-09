@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+<link href="/js/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="/js/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div class="container">
+  <h1>테이블 샘플입니다</h1>
+  <table class="table table-straped" id="responeTable">
+    <colgroup>
+      <col width="20%"/>
+      <col width="30%"/>
+      <col width="30%"/>
+      <col width="20%"/>
+    </colgroup>
+    <thead>
+      <tr>
+        <td>Seq</td>
+        <td>title</td>
+        <td>content</td>
+        <td>created_at</td>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <div style="width:400px;margin:0 auto;">
+  <nav aria-label="Page navigation">
+    <ul class="pagination">
+      <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+      <li><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">5</a></li>
+      <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+    </ul>
+  </nav>
+  </div>
+
+  <button class="btn btn-default">목록</button>
+  <button class="btn btn-primary">글쓰기</button>
+
+
+
+</div>
+
+
+<script src="/js/jquery/dist/jquery.min.js"></script>
+
+<script src="/js/bootstrap//js/bootstrap.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $.ajax({
+      type: "get",
+      url: "data.json",
+      dataType: "json",
+      contentType: "application/json",
+      success: function (response) {
+        var str = '';
+        $.each(response.list, function (indexInArray, valueOfElement) {
+          str += '<tr>';
+          str += '  <td>' + valueOfElement.seq + '</td>';
+          str += '  <td>' + valueOfElement.title + '</td>';
+          str += '  <td>' + valueOfElement.content + '</td>';
+          str += '  <td>' + valueOfElement.created_at + '</td>';
+          str += '</tr>';
+        });
+        $('#responeTable tbody').html(str);
+
+        //-----------------------//
+
+        var _total = response.total;
+        var _pageSize = response.pageSize;
+        var _cpage = response.cpage;
+        var _paging = _total/_pageSize + 1;
+
+var display = 5;
+
+        var arr = [_cpage -2, _cpage -1, _cpage, _cpage+1, _cpage+2];
+        if(_cpage <= 2) {
+         arr = [_cpage, _cpage +1, _cpage +2, _cpage +3, _cpage + 4];
+        }
+        if(_cpage >= _paging-2) {
+          arr = [_paging-4, _paging -3, _paging - 2, _paging -1, _paging];
+        }
+
+        var str2 = '';
+        if (_cpage-2 > 0) {
+          str2 += '<li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>';
+        }
+
+        str2 += arr.map(function(cpage){
+                      return '<li><a href="#">' + cpage + '</a></li>';
+                    }).join('');
+
+        if(_cpage < _paging) {
+          str2 += '<li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>';
+        }
+        debugger
+        $('.pagination').html(str2);
+      }
+    });
+  });
+
+</script>
+</body>
+</html>

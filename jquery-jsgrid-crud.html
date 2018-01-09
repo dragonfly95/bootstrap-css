@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+<link href="/js/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="/js/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+<!-- <link href="/js/jqGrid/css/ui.jqgrid.css" rel="stylesheet" type="text/css" /> -->
+<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.2/jsgrid.min.css" />
+<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.2/jsgrid-theme.min.css" />
+</head>
+<body>
+
+<div class="container">
+  <h1>jsGrid 예제</h1>
+  <div id="jsGrid"></div>
+</div>
+
+
+<script src="/js/jquery/dist/jquery.min.js"></script>
+<script src="/js/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="js/handlebars/handlebars.min.js"></script>
+<!-- <script src="/js/jqGrid/js/minified/jquery.jqGrid.min.js"></script> -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.2/jsgrid.min.js"></script>
+
+<script type="text/javascript">
+  var myRend = function (value, item) {
+    var result = "<td>";
+    var arrs = value.split(',');
+    for (var i in arrs) {
+      var item = arrs[i];
+      result = result + item + "<br>";
+    }
+    result = result + "</td>";
+    return result;
+  }
+
+  $(document).ready(function () {
+    var teamName = "";
+    var id = -10;
+    $("#excutors").val('');
+    $("#excutors").prop('disabled', true);
+    $("#saveBtn").prop('disabled', true);
+
+    $("#saveBtn").click(function () {
+      if (id == -10) {
+        alert("팀을 선택해주세요.");
+      }
+      else {
+        var text = $('#excutors').val();
+        var param = {
+          excutors: text,
+          team2: teamName,
+          id: id
+        };
+
+        $.ajax({
+          type: "POST",
+          url: "save_excutors",
+          data: param,
+          success: function (data) {
+            alert("저장되었습니다.");
+          }
+        });
+      }
+    });
+
+    var excutors = [{
+      "excutor": ""
+    }];
+
+    function drawInputJsGrid(campusList, departmentList) {
+      $("#jsGrid").jsGrid({
+        width: "100%",
+        height: "400px",
+
+        autoload: true,
+        inserting: true,
+        editing: true,
+        sorting: true,
+        paging: true,
+        selecting: true,
+        pageSize: 15,
+        pageButtonCount: 5,
+
+        rowClick: function (args) {
+          $("#excutors").prop('disabled', false);
+          $("#saveBtn").prop('disabled', false);
+
+          teamName = args.item.team2;
+          id = args.item.id;
+
+          var campusName = '';
+          for (var i in campusList) {
+            if (campusList[i].id == args.item.campus) {
+              campusName = campusList[i].name;
+            }
+          }
+
+          var deptName = '';
+          for (var i in departmentList) {
+            if (departmentList[i].id == args.item.department) {
+              deptName = departmentList[i].name;
+            }
+          }
+
+          $("#excutor").text("실행위원 (" + campusName + "-" + deptName + "-" + args.item.team1 + "-" + args.item.team2 + ")")
+          $("#status").html("복수의 인원을 입력할 때는 사람마다 쉼표(,)로 구분해주세요  <br>이름 뒤에 생년월일을 입력하실 수 있습니다. YYYYMMDD 예)홍길동19701130");
+
+          if (id != null) {
+            $.ajax({
+              url: "excutors/" + id,
+              contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+              type: 'GET',
+              success: function (data) {
+                var content = "";
+                for (var i in data) {
+                  content = content + data[i].name + ",";
+                }
+                $('#excutors').height(((data.length / 25) + 1) * 30);
+                $('#excutors').val(content);
+
+              },
+              error: function (jqXHR, textStatus, error) {
+                alert("error" + JSON.stringify(textStatus) + " " + JSON.stringify(error));
+
+              }
+            });
+          }
+          else {
+            $('#excutors').val("");
+          }
+        },
+        controller: {
+          loadData: function (filter) {
+            return $.ajax({
+              type: "GET",
+              url: "items.json",
+            })
+          },
+          insertItem: function (item) {
+            return $.ajax({
+              type: "POST",
+              url: "insert_item",
+              data: item
+            });
+          },
+          updateItem: function (item) {
+            return $.ajax({
+              type: "POST",
+              url: "update_item",
+              data: item
+            });
+          },
+          deleteItem: function (item) {
+            return $.ajax({
+              type: "POST",
+              url: "delete_item",
+              data: item
+            });
+          },
+        },
+        confirmDeleting: true,
+        deleteConfirm: "삭제하시겠습니까?",
+        fields: [
+          {
+            align: "center", width: "auto", name: "campus", title: "캠퍼스", type: "select",
+            items: campusList, valueField: "id", textField: "name", validate: "required"
+          },
+          {
+            align: "center", width: "auto", name: "department", title: "본부", type: "select",
+            items: departmentList, valueField: "id", textField: "name", validate: "required"
+          },
+          { align: "center", width: "auto", name: "team1", title: "본부사역팀", type: "text" },
+          { align: "center", width: "auto", name: "team2", title: "사역팀", type: "text" },
+          { align: "center", width: "auto", name: "pastor", title: "교역자", type: "text", cellRenderer: myRend },
+          { align: "center", width: "auto", name: "elder", title: "장로", type: "text", cellRenderer: myRend },
+          { align: "center", width: "auto", name: "cheif", title: "팀장", type: "text", cellRenderer: myRend },
+          { align: "center", width: "auto", name: "manager", title: "총무", type: "text", cellRenderer: myRend },
+          { align: "center", width: "auto", type: "control" }
+        ]
+      });
+    }
+
+    $.ajax({
+      type: "GET",
+      url: "./campuslist.json",
+      success: function (data) {
+        var campusList = data.campusList;
+        var departmentList = data.departmentList;
+
+        drawInputJsGrid(campusList, departmentList);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
