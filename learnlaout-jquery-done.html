@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+<link href="/js/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="/js/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+<link href="./style.css" rel="stylesheet" type="text/css" />
+  <title>JS Bin</title>
+<style>
+
+</style>
+</head>
+<body>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div style="padding-top:20px;">
+        <a href="/">
+          <img src="./bower.png" alt="bower logo" width="100" />
+        </a>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="txt_right">
+        <div class="btn-group" role="group" aria-label="...">
+          <button type="button" class="btn btn-default">회원가입</button>
+          <button type="button" class="btn btn-default">로그인</button>
+          <button type="button" class="btn btn-default">패밀리사이트</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <div>&nbsp;</div>
+      <div>&nbsp;</div>
+      <div>
+        <ul>
+          <li>메뉴1</li>
+          <li>메뉴2</li>
+          <li>메뉴3</li>
+          <li>메뉴4</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-10">
+      <form name="frm" action="">
+        <dl>
+          <dt><label for="tname">이름 : </label></dt>
+          <dd><input type="text" name="tname" value="" placeholder="이름을 입력해주세요." id="tname"></dd>
+          <dt><label for="ttelephone">핸드폰 : </label></dt>
+          <dd><input type="text" name="ttelephone" value="" placeholder="핸드폰" id="ttelephone"></dd>
+          <dt><label for="taddr">집주소 : </label></dt>
+          <dd><input type="text" name="taddr" value="" placeholder="집주소는?" id="taddr"></dd>
+          <dt></dt>
+          <dd><input type="button" name="valid_check" value="validate check "></dd>
+        </dl>
+      </form>
+    </div>
+  </div>
+  <!-- row -->
+  <div class="row">
+    <hr>
+    <div class="txt_center">
+      footer
+    </div>
+  </div>
+</div>
+<!-- container -->
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+  $(document).ready(function() {
+    $('[name="valid_check"]').on('click', function() {
+      alert("이름 :: " + $('[name="frm"] [name="tname"]').val());
+      alert("핸드폰 :: " + $('[name="frm"] [name="ttelephone"]').val());
+      alert("집주소 :: " + $('[name="frm"] [name="taddr"]').val());
+
+      $('[name="frm"] [name="tname"]').val("홍길동");
+      $('[name="frm"] [name="ttelephone"]').val("010-41567-4564");
+      $('[name="frm"] [name="taddr"]').val("동해번쩍 서해번쪽");
+    });
+  });
+  
+</script>
+
+</body>
+</html>
