@@ -1,0 +1,15 @@
+.title {
+  cursor: pointer;
+}
+.txt_center {
+  text-align:center;
+}
+.txt_right {
+  padding-top:20px;text-align:right;
+}
+dl {
+  line-height: 200%;
+}
+dl>dt {
+  float: left; width:80px;
+}
