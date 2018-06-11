@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Kickstart Web</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      
+      
+      .bgcolor {
+        background-color: none;
+      }      
+      
+      .lightblue {
+       background-color: none;
+      }
+      
+   .form-horizontal .control-label {
+      width: 70px;
+      }
+      
+   .form-horizontal .controls {
+     margin-left: 90px;
+       }      
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Kickstart Web</a>
+          <div class="nav-collapse collapse">
+            <p class="navbar-text pull-right">
+              Logged in as <a href="#" class="navbar-link">Username</a>
+            </p>
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="container-fluid">      
+      <form class="form-horizontal">
+      <legend>Person Form</legend>
+      <div class="row-fluid">
+        <div class="span8">
+          <div class="row-fluid">
+            <div class="span12 bgcolor">
+              <div class="alert alert-error">
+              <a href="#" class="close" data-dismiss="alert">×</a>
+                Error Messages.
+              </div>
+            </div>
+          </div>         
+          <div class="row-fluid">
+            <div class="span6 bgcolor">
+              <div class="control-group">
+                <label class="control-label" for="firstName">First Name</label>
+                <div class="controls">
+                  <input type="text" id="firstName" placeholder="Chee Kin">
+                  <span class="help-block">This is inline help</span>
+                </div>
+              </div>
+            </div><!--/span-->
+            <div class="span6 bgcolor">
+              <div class="control-group error">
+                <label class="control-label" for="lastName">Last Name</label>
+                <div class="controls">
+                  <input type="text" id="lastName" placeholder="Lim">
+                  <span class="help-block">This field has error.</span>
+                </div>
+              </div>
+            </div><!--/span-->
+          </div><!--/row-->
+          <div class="row-fluid">
+            <div class="span6 bgcolor">
+              <div class="control-group">
+                <label class="control-label" for="gender">Gender</label>
+                <div class="controls">
+                  <select id="gender" class="span12"></select>  
+                  <span class="help-block">Select your gender.</span>
+                </div>
+              </div>
+            </div><!--/span-->
+            <div class="span6 bgcolor">
+              <div class="control-group">
+                <label class="control-label" for="dateOfBirth">Date of Birth</label>
+                <div class="controls">
+                  <input type="text" id="dateOfBirth" placeholder="dd/mm/yyyy">
+                </div>
+              </div>
+            </div><!--/span-->
+          </div><!--/row-->
+          
+          <fieldset>
+          <legend>Address</legend>
+          <div class="row-fluid">
+            <div class="span12 bgcolor">
+              <div class="control-group">
+                <label class="control-label" for="street">Street</label>
+                <div class="controls">
+                  <input type="text" class="input-xxlarge" id="street">
+                </div>
+              </div>             
+            </div>
+          </div>
+          <div class="row-fluid">
+            <div class="span6 bgcolor">
+              <div class="control-group">
+                <label class="control-label" for="city">City</label>
+                <div class="controls">
+                  <input type="text" id="city"> 
+                </div>
+              </div>
+            </div><!--/span-->
+            <div class="span6 bgcolor">
+              <div class="control-group">
+                <label class="control-label" for="state">State</label>
+                <div class="controls">
+                  <input type="text" id="state"> 
+                </div>
+              </div>
+            </div><!--/span-->
+          </div><!--/row-->           
+          <div class="row-fluid">
+            <div class="span6 bgcolor">
+              <div class="control-group">
+                <label class="control-label" for="postCode">Post Code</label>
+                <div class="controls">
+                  <input type="text" id="postCode"> 
+                </div>
+              </div>
+            </div><!--/span-->
+            <div class="span6 bgcolor">
+              <div class="control-group">
+                <label class="control-label" for="country">Country</label>
+                <div class="controls">
+                  <select id="country"></select>
+                </div>
+              </div>            
+                
+            </div><!--/span-->
+          </div><!--/row-->
+          </fieldset>                        
+        </div><!--/span-->
+        
+        <div class="span4">
+
+        </div><!--/span-->       
+      </div><!--/row-->
+      </form>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Kickstart Web 2012</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+    
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-1.8.0.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+  </body>
+</html>
