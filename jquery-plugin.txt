@@ -1,4 +1,20 @@
 
+
+	var swiper2 = new Swiper('.m_banner .swiper-container', {
+		pagination: '.m_banner .swiper-pagination',
+		nextButton: '.m_banner .swiper-button-next',
+		prevButton: '.m_banner .swiper-button-prev',
+		paginationClickable: true,
+		spaceBetween: 30,
+		centeredSlides: true,
+		autoplay: 2500,
+		autoplayDisableOnInteraction: false,
+		loop: true,
+		effect: 'slide', // 'slide' or 'fade' or 'cube' or 'coverflow' or 'flip'
+	});
+	
+    
+    
 //header
 $(function () {
     $('.header').each(function () {
