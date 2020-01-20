@@ -17,3 +17,233 @@ jquery mask
 
 jquery fileupload 
 
+=====================================
+
+선택한 순간 파일 업로드
+
+필수 js파일
+
+/jquery/jquery-1.10.2.min.js
+
+/jquery/jquery.iframe-transport.js
+
+/jquery/jquery.fileupload.js
+
+/jquery/vendor/jquery.ui.widget.js
+
+
+
+jsp  TD태그안에
+
+<input id="fileupload" type="file" name="file" /> //멀티파일로하려면 input id="fileupload" type="file" name="file[]" multiple>
+
+<p class="desc">메일 발송시 CI이미지를 첨부해서 발송합니다.<br/>용량은 50kb이하로 업로드 해주십시오.</p>
+
+<!-- The global progress bar -->
+
+<div id="progress" class="progress">
+
+ <div class="progress-bar progress-bar-success"></div>
+
+</div>
+
+<!-- The container for the uploaded files -->
+
+<div id="files" class="files"></div>
+
+
+
+작성
+
+js부분은 
+
+$(function () {
+
+    // Change this to the location of your server-side upload handler:
+
+    var url = '/file/ciImage';  // 사용
+
+    var html = '';
+
+    $('#fileupload').fileupload({
+
+        url: url,
+
+        dataType: 'json',
+
+        add: function(e, data){
+
+            var uploadFile = data.files[0];
+
+            var isValid = true;
+
+            alert(uploadFile.size);
+
+            if (!(/png|jpe?g|gif/i).test(uploadFile.name)) {
+
+                alert('png, jpg, gif 만 가능합니다');
+
+                isValid = false;
+
+            } else if (uploadFile.size > 51200) { // 50kb
+
+                alert('파일 용량은 50kb를 초과할 수 없습니다.');
+
+                isValid = false;
+
+            }
+
+            if (isValid) {
+
+                data.submit();              
+
+            }
+
+        },
+
+        done: function (e, data) {
+
+         $('#files').empty();
+
+//          $('<p/>').text(data.result.file_name).appendTo('#files');
+
+         html = '<p>'+data.result.file_name+'&nbsp;&nbsp;<button type="button" onclick="fn_ciDelete('+data.result.file_uid+')">삭제</button></p>';
+
+         $('#files').append(html);
+
+         $('#tempFileUid').val(data.result.file_uid); //임시 파일uid저장
+
+         /*$.each(data.result.files, function (index, file) {
+
+                $('<p/>').text(file.name).appendTo('#files');
+
+            });*/
+
+        },
+
+        progressall: function (e, data) {
+
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+
+            $('#progress .progress-bar').css(
+
+                'width',
+
+                progress + '%'
+
+            );
+
+        }
+
+    }).prop('disabled', !$.support.fileInput)
+
+        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+
+});
+
+
+
+게 만들어준다.
+
+add부분은 ie8에선 작동이 되지않음....
+
+
+
+java부분
+
+
+
+@RequestMapping(value = "/ciImage")
+
+@ResponseBody
+
+public void ciImageUpload( @RequestParam("file") MultipartFile file, HttpSession session, HttpServletRequest request, HttpServletResponse response) throws Exception{
+
+  logger.debug("... doUploadImage() is called");
+
+  logger.debug("file:"+file);
+
+  CrFile crFile;
+
+  PrintWriter outWriter=null; 
+
+  
+
+  JSONObject json = new JSONObject();
+
+  
+
+  CrUser loginUser = sessionManager.getLoginUser(session);
+
+  int fileType = 11;
+
+  int ciFileUid = 0;
+
+  fileDao.ciImamgeDelete(99); //등록되있는 이미지를 삭제시킨후 
+
+  
+
+  File storeFile = fHandler.createFile(loginUser, fileType, file.getInputStream());
+
+  
+
+  crFile = new CrFile();
+
+  crFile.setUserUid(loginUser.getUserUid());
+
+  crFile.setStoreType(99); //신규 99타입으로 저장
+
+  crFile.setFileName(file.getOriginalFilename());
+
+  crFile.setFilePath(storeFile.getAbsolutePath());
+
+  crFile.setFileSize(storeFile.length());
+
+  crFile.setContentType(file.getContentType());
+
+  crFile.setTimeStor(Utility.getTimeMillis());
+
+  
+
+  ciFileUid = fileDao.doInsertFile(crFile); //등록
+
+  
+
+  json.put("file_name" , crFile.getFileName());
+
+  json.put("file_size" , crFile.getFileSize());
+
+  json.put("file_uid", ciFileUid);
+
+  json.put("file_svr_name" , "");
+
+  json.put("file_svr_path" , "");
+
+  json.put("content_type" , crFile.getContentType());
+
+  json.put(JsonUtil.RESULT, JsonUtil.SUCCESS);
+
+  
+
+  response.setContentType("text/plain);charset=UTF-8");
+
+  response.setCharacterEncoding("UTF-8");
+
+  response.setHeader("Cache-Control", "no-chche");
+
+  response.getWriter().write(json.toString());
+
+  
+
+}
+
+
+
+으로 만들면 업로드 파일은 선택하면 저 java단을 타고 로직을 처리하게됨
+
+꽤 유용할듯.
+
+
+
+소스출처 : https://github.com/blueimp/jQuery-File-Upload
+[출처] jquery file upload|작성자 LiaDus
