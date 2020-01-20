@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#commentForm").validate();
+      $.extend($.validator.messages, { 
+          required: "필수 항목입니다.",
+          remote: "항목을 수정하세요.",
+          email: "유효하지 않은 E-Mail주소입니다.",
+          url: "유효하지 않은 URL입니다.",
+          date: "올바른 날짜를 입력하세요.",
+          dateISO: "올바른 날짜(ISO)를 입력하세요.",
+          number: "유효한 숫자가 아닙니다.",
+          digits: "숫자만 입력 가능합니다.",
+          creditcard: "신용카드 번호가 바르지 않습니다.",
+          equalTo: "같은 값을 다시 입력하세요.",
+          extension: "올바른 확장자가 아닙니다.",
+          maxlength: $.validator.format("{0}자를 넘을 수 없습니다. "), 
+          minlength: $.validator.format("{0}자 이상 입력하세요."), 
+          rangelength: $.validator.format("문자 길이가 {0} 에서 {1} 사이의 값을 입력하세요."), 
+          range: $.validator.format("{0} 에서 {1} 사이의 값을 입력하세요."),
+          max: $.validator.format("{0} 이하의 값을 입력하세요."), 
+          min: $.validator.format("{0} 이상의 값을 입력하세요.") 
+        });
+    });  
+  </script>
+  <form class="cmxform" id="commentForm" method="get" action="">
+    <fieldset>
+      <legend>이름, 이메일, 의견을 입력해주세요.</legend>
+      <p> <label for="cname">이름 (필수, 2 자 이상)</label>
+        <input id="cname" name="name" minlength="2" type="text" required> </p>
+      <p>
+        <label for="cemail">이메일 (필수)</label>
+        <input id="cemail" type="email" name="email" required> </p>
+      <p>
+        <label for="curl">URL (선택)</label>
+        <input id="curl" type="url" name="url"> </p>
+      <p>
+        <label for="ccomment">의견 (필수)</label>
+        <textarea id="ccomment" name="comment" required></textarea> </p>
+      <p>
+        <input class="submit" type="submit" value="Submit"> </p>
+    </fieldset>
+  </form>
+
+</body>
+
+</html>
