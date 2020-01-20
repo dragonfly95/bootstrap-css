@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+  <script type="text/javascript">
+    $(function () {
+
+
+      $.validator.setDefaults({
+          onkeyup:false,
+          onclick:false,
+          onfocusout:false,
+          showErrors:function(errorMap, errorList) {
+            if(this.numberOfInvalids()) {
+              debugger
+              var b = Object.getOwnPropertyNames( errorMap );
+              var column = $('[name="'+b[0]+'"]').data('column');
+              var message = errorList[0].message;
+              alert(column + ' 필드는 ' + message);
+            }
+          }
+      });
+
+      $("#commentForm").validate({
+        rules: {
+          extra: {required:true, extraMethod: true}
+        },
+        messages: {
+          extra: { required: '#값을 입력해주세요', extraMethod: '#올바른 값이 아닙니다'}
+        }
+      });
+
+      $.validator.addMethod("extraMethod", function(value, element) {
+        debugger
+          if(value = "abc") {
+            return true;
+          } else {
+            return false;
+          }
+        },
+        '값이 없습니다.');
+
+
+      $.extend($.validator.messages, { 
+          required: "필수 항목입니다.",
+          remote: "항목을 수정하세요.",
+          email: "유효하지 않은 E-Mail주소입니다.",
+          url: "유효하지 않은 URL입니다.",
+          date: "올바른 날짜를 입력하세요.",
+          dateISO: "올바른 날짜(ISO)를 입력하세요.",
+          number: "유효한 숫자가 아닙니다.",
+          digits: "숫자만 입력 가능합니다.",
+          creditcard: "신용카드 번호가 바르지 않습니다.",
+          equalTo: "같은 값을 다시 입력하세요.",
+          extension: "올바른 확장자가 아닙니다.",
+          maxlength: $.validator.format("{0}자를 넘을 수 없습니다. "), 
+          minlength: $.validator.format("{0}자 이상 입력하세요."), 
+          rangelength: $.validator.format("문자 길이가 {0} 에서 {1} 사이의 값을 입력하세요."), 
+          range: $.validator.format("{0} 에서 {1} 사이의 값을 입력하세요."),
+          max: $.validator.format("{0} 이하의 값을 입력하세요."), 
+          min: $.validator.format("{0} 이상의 값을 입력하세요.") 
+        });
+    });  
+  </script>
+  <form class="cmxform" id="commentForm" method="get" action="">
+    <fieldset>
+      <legend>이름, 이메일, 의견을 입력해주세요.</legend>
+      <p>
+        <label for="cextra">extra method</label>
+        <input type="input" name="extra" value="" data-column="엑스트라">
+      </p>
+      <p> 
+        <label for="cname">이름 (필수, 2 자 이상)</label>
+        <input id="cname" name="name" minlength="2" type="text" required data-column="이름"> </p>
+      <p>
+        <label for="cemail">이메일 (필수)</label>
+        <input id="cemail" type="email" name="email" required data-column="이메일"> </p>
+      <p>
+        <label for="curl">URL (선택)</label>
+        <input id="curl" type="url" name="url" data-column="URL"> </p>
+      <p>
+        <label for="ccomment">의견 (필수)</label>
+        <textarea id="ccomment" name="comment" required data-column="의견(필수)"></textarea> </p>
+      <p>
+
+        <input class="submit" type="submit" value="Submit"> </p>
+    </fieldset>
+  </form>
+
+</body>
+
+</html>
