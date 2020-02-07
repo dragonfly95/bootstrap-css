@@ -1,0 +1,229 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="canonical" href="http://www.carway.co.kr"><meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+<meta name="description" content="카웨이는 차량관리프로그램으로 자동차정비업체의 업무에 맞도록 개발, 보험수리차량의 장기미결건이 발생하지 않도록 해드립니다.">
+<meta property="fb:app_id" content="828000863966513">
+<meta property="og:type" content="Website">
+<meta property="og:site_name" content="CARWAY">
+<meta property="og:title" content="완벽한 차량관리 위한 CARWAY">
+<meta property="og:description" content="고객관리 및 차량관리 전문프로그램 카웨이, 자동차정비, 수입차부품업체, 카센타, 자동차유리업체등">
+<meta property="og:url" content="http://www.carway.co.kr/sample_tab_add.php">
+<meta property="og:image" content="http://www.carway.co.kr/img/main_banner_799px.jpg">
+<title>완벽한 차량관리 위한 CARWAY</title>
+<link rel="stylesheet" href="http://www.carway.co.kr/css/default.css">
+<!--[if lte IE 8]>
+<script src="http://www.carway.co.kr/js/html5.js"></script>
+<![endif]-->
+<script>
+// 자바스크립트에서 사용하는 전역변수 선언
+var g5_url       = "http://www.carway.co.kr";
+var g5_bbs_url   = "http://www.carway.co.kr/bbs";
+var g5_is_member = "";
+var g5_is_admin  = "";
+var g5_is_mobile = "";
+var g5_bo_table  = "";
+var g5_sca       = "";
+var g5_editor    = "";
+var g5_cookie_domain = "";
+
+</script>
+<script src="http://www.carway.co.kr/js/jquery-1.8.3.min.js"></script>
+<script src="http://www.carway.co.kr/js/jquery.menu.js"></script>
+<script src="http://www.carway.co.kr/js/common.js"></script>
+<script src="http://www.carway.co.kr/js/wrest.js"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- 구글 광고 -->
+
+<script type="text/ecmascript" src="http://www.carway.co.kr/plugin/jquery-ui-1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://www.carway.co.kr/plugin/jquery-ui-1.12.1/jquery-ui.css">
+<script src="http://www.carway.co.kr/js/carmidas.js"></script>
+<link rel="stylesheet" href="http://www.carway.co.kr/js/font-awesome/css/font-awesome.min.css">
+
+
+</head>
+<body>
+<script>
+$( function() {
+	var tabTitle = $( "#tab_title" ),
+		tabContent = $( "#tab_content" ),
+		tabTemplate = "<li><a href='#{href}'>#{label}</a> <span class='ui-icon ui-icon-close' role='presentation'>Remove Tab</span></li>",
+		tabCounter = 1;
+	var tabs = $( "#tabs" ).tabs();
+
+	// Modal dialog init: custom buttons and a "close" callback resetting the form inside
+	var dialog = $( "#dialog" ).dialog({
+		autoOpen: false,
+		modal: true,
+		buttons: {
+			Add: function() {
+				addTab();
+				$( this ).dialog( "close" );
+			},
+			Cancel: function() {
+				addTab();
+				$( this ).dialog( "close" );
+			}
+		},
+		close: function() {
+			form[ 0 ].reset();
+		}
+	});
+
+	// AddTab form: calls addTab function on submit and closes the dialog
+	var form = dialog.find( "form" ).on( "submit", function( event ) {
+		addTab();
+		dialog.dialog( "close" );
+		event.preventDefault();
+	});
+
+	// Actual addTab function: adds new tab using the input from the form above
+    function addTab(url, cnt) {
+		//alert("====");
+		var tabTitle = $("button#add_tab").eq(cnt).text();
+		//console.log(tabTitle);
+		//var label = tabTitle.val() || "Tab " + tabCounter,
+		var label = tabTitle || "Tab " + tabCounter,
+			id = "tabs-" + tabCounter,
+			li = $( tabTemplate.replace( /#\{href\}/g, "#" + id ).replace( /#\{label\}/g, label ) ),
+			//tabContentHtml = tabContent.val() || "Tab " + tabCounter + " content.";
+			tabContentHtml = "";
+			tabs.find( ".ui-tabs-nav" ).append( li );
+			//tabs.append( "<div id='" + id + "'><p>" + tabContentHtml + "</p></div>" );
+			tabs.append( "<div id='" + id + "'></div>" );
+			$('#'+id).append().load(url);
+			tabs.tabs( "refresh" );
+			var tab_cnt = $('#tabs li').length; //현재 열려있는 탭의 갯수.
+			tabs.tabs({
+				active: tab_cnt - 1 /* 마지막으로 생성한 탭을 활성화 */
+			});
+
+			console.log(tab_cnt);
+			tabCounter++;
+	}
+
+	// AddTab button: just opens the dialog
+	//$( "#add_tab" ).button().on( "click", function() {
+		//dialog.dialog( "open" );
+	//	addTab(url);
+	//});
+
+	go_url = function(url, cnt) {
+		addTab(url, cnt);
+
+	}
+
+	// Close icon: removing the tab on click
+	tabs.on( "click", "span.ui-icon-close", function() {
+		var panelId = $( this ).closest( "li" ).remove().attr( "aria-controls" );
+		$( "#" + panelId ).remove();
+		tabs.tabs( "refresh" );
+	});
+
+	tabs.on( "keyup", function( event ) {
+		if ( event.altKey && event.keyCode === $.ui.keyCode.BACKSPACE ) {
+			var panelId = tabs.find( ".ui-tabs-active" ).remove().attr( "aria-controls" );
+			$( "#" + panelId ).remove();
+			tabs.tabs( "refresh" );
+		}
+	});
+});
+</script>
+<style>
+#tab_zone { width:95%; margin:auto; padding:20px 0px 0px 0px; }
+#tab_zone button { padding:5px 10px; }
+#tabs-1 { xheight:300px; }
+</style>
+<div id="tab_zone">
+	<!--
+	<div id="dialog" title="Tab data">
+		<form>
+			<fieldset class="ui-helper-reset">
+				<label for="tab_title">Title</label>
+				<input type="text" name="tab_title" id="tab_title" value="Tab Title" class="ui-widget-content ui-corner-all">
+				<label for="tab_content">Content</label>
+				<textarea name="tab_content" id="tab_content" class="ui-widget-content ui-corner-all">Tab content</textarea>
+			</fieldset>
+		</form>
+	</div>
+	-->
+		<button id="add_tab" onclick="go_url('./1.html','0');">페이지 #1</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=2','1');">페이지 #2</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=3','2');">페이지 #3</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=4','3');">페이지 #4</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=5','4');">페이지 #5</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=6','5');">페이지 #6</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=7','6');">페이지 #7</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=8','7');">페이지 #8</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=9','8');">페이지 #9</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=10','9');">페이지 #10</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=11','10');">페이지 #11</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=12','11');">페이지 #12</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=13','12');">페이지 #13</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=14','13');">페이지 #14</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=15','14');">페이지 #15</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=16','15');">페이지 #16</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=17','16');">페이지 #17</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=18','17');">페이지 #18</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=19','18');">페이지 #19</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=20','19');">페이지 #20</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=21','20');">페이지 #21</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=22','21');">페이지 #22</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=23','22');">페이지 #23</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=24','23');">페이지 #24</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=25','24');">페이지 #25</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=26','25');">페이지 #26</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=27','26');">페이지 #27</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=28','27');">페이지 #28</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=29','28');">페이지 #29</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=30','29');">페이지 #30</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=31','30');">페이지 #31</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=32','31');">페이지 #32</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=33','32');">페이지 #33</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=34','33');">페이지 #34</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=35','34');">페이지 #35</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=36','35');">페이지 #36</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=37','36');">페이지 #37</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=38','37');">페이지 #38</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=39','38');">페이지 #39</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=40','39');">페이지 #40</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=41','40');">페이지 #41</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=42','41');">페이지 #42</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=43','42');">페이지 #43</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=44','43');">페이지 #44</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=45','44');">페이지 #45</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=46','45');">페이지 #46</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=47','46');">페이지 #47</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=48','47');">페이지 #48</button>
+		<button id="add_tab" onclick="go_url('./sample_tab_add_sub.php?num=49','48');">페이지 #49</button>
+	
+	<div id="tabs">
+		<ul>
+			<li><a href="./sample_tab_add_sub.php?num=0">페이지 #0</a> <span class="ui-icon ui-icon-close" role="presentation">Remove Tab</span></li>
+		</ul>
+		<div id="tabs-1">
+
+		</div>
+	</div>
+</div>
+
+
+<!-- ie6,7에서 사이드뷰가 게시판 목록에서 아래 사이드뷰에 가려지는 현상 수정 -->
+<!--[if lte IE 7]>
+<script>
+$(function() {
+    var $sv_use = $(".sv_use");
+    var count = $sv_use.length;
+
+    $sv_use.each(function() {
+        $(this).css("z-index", count);
+        $(this).css("position", "relative");
+        count = count - 1;
+    });
+});
+</script>
+<![endif]-->
+</body>
+</html>
