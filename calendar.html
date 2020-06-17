@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="currentYear"></div>
+    <table class="cal" border="1">
+        <thead>
+            <tr>
+                <td>일</td><td>월</td><td>화</td><td>수</td><td>목</td><td>금</td><td>토</td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+        var today = new Date();
+        var _year = today.getFullYear(),
+            _month = today.getMonth(),
+            _date = today.getDate(),
+            _week = today.getDay();
+        
+        var d2 = new Date(_year, _month, 1);
+            _year = d2.getFullYear(),
+            _month = d2.getMonth()+1,
+            _date = d2.getDate(),
+            _week = d2.getDay();
+            _lastDay = ( new Date(_year, _month, 0) ).getDate();
+            currentDay = 0;
+
+        var str = '';
+            str += '<tr>';
+        for(var i = 0; i < _week ; i++) {
+            str += '<td>&nbsp;</td>';
+        }
+        for(var i = _week; i < 7; i++) {
+            str += '<td>'+ i +'</td>';
+            ++currentDay;
+        }
+        str += '</tr>';
+        //--------------------------------------------//
+        for(var i = 0; i < (_lastDay + _week - 7) ; i++) {
+            if(i%7 == 0) {
+                str += '<tr>';
+                str += '<td>'+ (++currentDay) +'</td>';
+            } else {
+                str += '<td>'+ (++currentDay) +'</td>';
+            }
+            if(i%7 == 6) {
+                str += '</tr>';
+            }
+        }
+        //---------------------------------------------//
+
+        var header = '<h2>'+ _year +'년';
+            header += ' '+ _month +'월</h2>';
+        $('#currentYear').html(header);
+        $('.cal').find('tbody').html(str);
+        </script>
+</body>
+</html>
