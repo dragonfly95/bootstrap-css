@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <table>
+        <tr>
+            <td><a href="#" onclick="return false;" data-year="" data-month="" class="prev">이전달</a></td>
+            <td><div class="current"></div></td>
+            <td><a href="#" onclick="return false;" data-year="" data-month="" class="next">다음달</a></td>
+        </tr>
+    </table>
+    <table border="1" class="cal">
+        <thead>
+        <tr><td>일</td><td>월</td><td>화</td><td>수</td><td>목</td><td>금</td><td>토</td>
+        </tr>
+    </thead>
+        <tbody></tbody>
+    </table>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+$(document).ready(function () {
+
+    $('.prev').on('click', function() {
+        var month = $(this).data('month');
+        var year = $(this).data('year');
+        $(this).data('month',month);
+        fn(year,month-1);
+    });
+
+    $('.next').on('click', function() {
+        var month = $(this).data('month');
+        var year = $(this).data('year');
+        $(this).data('month',month);
+        fn(year,month);
+    });
+
+    // init
+    fn(2020,5);
+
+    function fn(year, month) {
+        if(month > 12) {
+            ++year;
+            month = 1;
+        }
+        if(month == 0) {
+            --year;
+            month = 12;
+        }
+        var monthArr = fn1(year, month);
+        fn2(monthArr);
+    }
+
+    function fn1(_year, _month) {
+        var arr = new Array(5);
+        arr[0] = new Array(7);
+        arr[1] = new Array(7);
+        arr[2] = new Array(7);
+        arr[3] = new Array(7);
+        arr[4] = new Array(7);
+
+        var d2 = new Date(_year, _month, 1);
+        var _year = d2.getFullYear(),
+            _month = d2.getMonth(),
+            _date = d2.getDate(),
+            _week = d2.getDay();
+            _lastDay = ( new Date(_year, _month, 0) ).getDate();
+
+            $('.current').html(''+ _year + '년 ' + (_month+1) + '월 ');
+            $('.prev').data('month', d2.getMonth());
+            $('.prev').data('year', d2.getFullYear());
+            $('.next').data('month', d2.getMonth()+1);
+            $('.next').data('year', d2.getFullYear());
+
+        var cDate = 1;
+        //-----------------------------------------------------
+        for(var i = 0; i < arr.length; i++) {
+            for(var j = 0; j < arr[i].length; j++) {
+                if(i == 0) {
+                    if(j < _week) {
+                        arr[i][j] = "";
+                    } else {
+                        arr[i][j] = cDate;
+                        ++ cDate;
+                    }
+
+                } else {
+                    if( cDate <= _lastDay) {
+                        arr[i][j] = cDate;
+                        ++ cDate;
+                    } else {
+                        arr[i][j] = "";
+                    }
+
+                }
+            }
+        }
+        return arr;
+    }
+
+
+
+    //-----------------------------------------------------
+    function fn2(arr){
+        var str = '';
+        for(var i = 0; i < arr.length; i++) {
+            str += '<tr>';
+            for(var j = 0; j < arr[i].length; j++) {
+                console.log(arr[i][j]);
+                str += '<td>'+ (arr[i][j] || '') +'</td>';
+            }
+            str += '</tr>';
+        }
+        $('.cal>tbody').html(str);
+
+        
+    }
+
+});
+    </script>
+
+</body>
+</html>
