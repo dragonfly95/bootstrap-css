@@ -414,7 +414,7 @@ payment
 
 ## 로그인 
 
-{% api-method method="get" host="" path="/oauth2/authorization/facebook" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/oauth2/authorization/facebook" %}
 {% api-method-summary %}
 facebook login 
 {% endapi-method-summary %}
@@ -446,7 +446,7 @@ facebook login
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="/oauth2/authorization/google" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/oauth2/authorization/google" %}
 {% api-method-summary %}
 google login
 {% endapi-method-summary %}
@@ -478,13 +478,13 @@ google login
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/oauth2/authorization/apple" %}
 {% api-method-summary %}
-  비밀번호 찾기
+apple login
 {% endapi-method-summary %}
 
 {% api-method-description %}
- 비밀번호 찾기 이후 메일로 인증번호 보내줌. 
+
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -504,6 +504,44 @@ google login
 
 ```
 
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="get" host="https://admin.nuonchic.com" path="/findpassword" %}
+{% api-method-summary %}
+  비밀번호 찾기
+{% endapi-method-summary %}
+
+{% api-method-description %}
+ 비밀번호 찾기 이후 메일로 인증번호 보내줌. 
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="Authentication" type="string" required=true %}
+Beaerer token
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+
+{% api-method-body-parameters %}
+{% api-method-parameter name="email" type="string" required=true %}
+
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+{"code": 100, "message": "ok"}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -542,39 +580,7 @@ google login
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="/oauth2/authorization/apple" %}
-{% api-method-summary %}
-apple login
-{% endapi-method-summary %}
-
-{% api-method-description %}
-
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=false %}
-
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
-```
-
-```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
-
-{% api-method method="get" host="" path="" %}
+{% api-method method="get" host="" path="/aboutus" %}
 {% api-method-summary %}
 about nuonchic
 {% endapi-method-summary %}
@@ -606,7 +612,7 @@ about nuonchic
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="" %}
+{% api-method method="get" host="" path="/privacy-policy" %}
 {% api-method-summary %}
  get a privacy policy
 {% endapi-method-summary %}
@@ -638,7 +644,7 @@ about nuonchic
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="" %}
+{% api-method method="get" host="" path="/terms-conditions" %}
 {% api-method-summary %}
  get a terms and conditions
 {% endapi-method-summary %}
