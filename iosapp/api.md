@@ -4,7 +4,7 @@
 
 {% api-method method="get" host="https://admin.nuonchic.com" path="/product/categories" %}
 {% api-method-summary %}
-
+product categories
 {% endapi-method-summary %}
 
 {% api-method-description %}
