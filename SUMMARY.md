@@ -4,6 +4,6 @@
 
 ## login
 
+* [Product / Payment / MyPage](login/untitled.md)
 * [sns login](login/untitled-2.md)
-* [회원가입](login/untitled.md)
 
