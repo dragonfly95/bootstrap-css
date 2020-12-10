@@ -2,8 +2,8 @@
 
 * [Nuonchic](README.md)
 
-## login
+## IOS App <a id="iosapp"></a>
 
-* [Product / Payment / MyPage](login/untitled.md)
-* [sns login](login/untitled-2.md)
+* [Product / Payment / MyPage](iosapp/untitled.md)
+* [etc function](iosapp/untitled-2.md)
 
