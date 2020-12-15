@@ -2,7 +2,7 @@
 
 ## Product Categories
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/product/categories" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/user/product/categories" %}
 {% api-method-summary %}
 product categories
 {% endapi-method-summary %}
@@ -36,7 +36,7 @@ product categories
 
 ## show bra types
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/product/bras" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/user/product/bras" %}
 {% api-method-summary %}
 show bra types
 {% endapi-method-summary %}
@@ -68,7 +68,7 @@ show bra types
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/product/allbrands" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/user/product/allbrands" %}
 {% api-method-summary %}
 show all brands
 {% endapi-method-summary %}
@@ -100,7 +100,7 @@ show all brands
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/product/designers" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/user/product/designers" %}
 {% api-method-summary %}
 search designer
 {% endapi-method-summary %}
@@ -136,7 +136,7 @@ search designer
 
 ## write a review
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/product/review" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/user/product/review" %}
 {% api-method-summary %}
 get a review about product
 {% endapi-method-summary %}
@@ -147,18 +147,6 @@ get a review about product
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=false %}
-
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-
-{% api-method-headers %}
-{% api-method-parameter name="Authentication" type="string" required=true %}
-
-{% endapi-method-parameter %}
-{% endapi-method-headers %}
-{% endapi-method-request %}
 
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
@@ -174,7 +162,7 @@ get a review about product
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="post" host="https://admin.nuonchic.com" path="/product/review" %}
+{% api-method method="post" host="https://admin.nuonchic.com" path="/user/product/review" %}
 {% api-method-summary %}
 write a review
 {% endapi-method-summary %}
@@ -193,7 +181,7 @@ write a review
 
 {% api-method-headers %}
 {% api-method-parameter name="Authentication" type="string" required=true %}
-
+Bearer token
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
 {% endapi-method-request %}
@@ -212,7 +200,7 @@ write a review
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="put" host="https://admin.nuonchic.com" path="/product/review/{reviewId}" %}
+{% api-method method="put" host="https://admin.nuonchic.com" path="/user/product/review/{reviewId}" %}
 {% api-method-summary %}
 modify my review
 {% endapi-method-summary %}
@@ -250,7 +238,7 @@ modify my review
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="delete" host="" path="" %}
+{% api-method method="delete" host="https://admin.nuonchic.com" path="/user/product/review/{reviewId}" %}
 {% api-method-summary %}
 delete my review
 {% endapi-method-summary %}
@@ -316,7 +304,7 @@ wishlist toggle
 
 ##  상품상세
 
-{% api-method method="get" host="" path="" %}
+{% api-method method="get" host="" path="/user/product/detail/{productId}" %}
 {% api-method-summary %}
  상품코드의 상세 
 {% endapi-method-summary %}
@@ -328,8 +316,8 @@ wishlist toggle
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=false %}
-
+{% api-method-parameter name="productId" type="integer" required=true %}
+ 상품코
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 {% endapi-method-request %}
@@ -348,7 +336,7 @@ wishlist toggle
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="" %}
+{% api-method method="get" host="" path="/user/cart/create" %}
 {% api-method-summary %}
 장바구니 담기
 {% endapi-method-summary %}
@@ -380,7 +368,7 @@ wishlist toggle
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="" %}
+{% api-method method="get" host="" path="/user/pay" %}
 {% api-method-summary %}
 payment
 {% endapi-method-summary %}
@@ -425,12 +413,6 @@ facebook login
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=false %}
-
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
 
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
@@ -439,7 +421,9 @@ facebook login
 {% endapi-method-response-example-description %}
 
 ```
-
+{
+  "token":"eyJ0eXAiOiJKdddddV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0MSIsInJvbGUiOiJyb2xlX3VzZXIiLCJ1c2VyTmFtZSI6ImthbnU5MTEiLCJleHAiOjE2MDg1NjAyMzgsInVzZXJJZCI6InRlc3QxIn0.WHf-TWI1EW9HLKYoe5b6rF2-tXL_aFpvcfMw1uhw4nEzdRUNvF4TovuBBvJl6xs4bTX9IncPf_aU8pSmRgy9iA"
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -457,12 +441,6 @@ google login
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=false %}
-
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
 
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
@@ -471,7 +449,9 @@ google login
 {% endapi-method-response-example-description %}
 
 ```
-
+{
+  "token":"eyJ0eXAiOiJKdddddV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0MSIsInJvbGUiOiJyb2xlX3VzZXIiLCJ1c2VyTmFtZSI6ImthbnU5MTEiLCJleHAiOjE2MDg1NjAyMzgsInVzZXJJZCI6InRlc3QxIn0.WHf-TWI1EW9HLKYoe5b6rF2-tXL_aFpvcfMw1uhw4nEzdRUNvF4TovuBBvJl6xs4bTX9IncPf_aU8pSmRgy9iA"
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -489,12 +469,6 @@ apple login
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=false %}
-
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
 
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
@@ -503,7 +477,9 @@ apple login
 {% endapi-method-response-example-description %}
 
 ```
-
+{
+  "token":"eyJ0eXAiOiJKdddddV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0MSIsInJvbGUiOiJyb2xlX3VzZXIiLCJ1c2VyTmFtZSI6ImthbnU5MTEiLCJleHAiOjE2MDg1NjAyMzgsInVzZXJJZCI6InRlc3QxIn0.WHf-TWI1EW9HLKYoe5b6rF2-tXL_aFpvcfMw1uhw4nEzdRUNvF4TovuBBvJl6xs4bTX9IncPf_aU8pSmRgy9iA"
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -521,12 +497,6 @@ apple login
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="Authentication" type="string" required=true %}
-Beaerer token
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-
 {% api-method-body-parameters %}
 {% api-method-parameter name="email" type="string" required=true %}
 
@@ -548,7 +518,7 @@ Beaerer token
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="" %}
+{% api-method method="post" host="" path="/user/savepassword" %}
 {% api-method-summary %}
  비밀번호 저장
 {% endapi-method-summary %}
@@ -559,11 +529,15 @@ Beaerer token
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=false %}
-
+{% api-method-body-parameters %}
+{% api-method-parameter name="oldPassword" type="string" required=false %}
+old password
 {% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+
+{% api-method-parameter name="newPassword" type="string" required=false %}
+new password
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -573,14 +547,16 @@ Beaerer token
 {% endapi-method-response-example-description %}
 
 ```
-
+{
+  "code": 100, "message": "ok"
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="/aboutus" %}
+{% api-method method="get" host="" path="/user/aboutus" %}
 {% api-method-summary %}
 about nuonchic
 {% endapi-method-summary %}
@@ -612,7 +588,7 @@ about nuonchic
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="/privacy-policy" %}
+{% api-method method="get" host="" path="/user/privacy-policy" %}
 {% api-method-summary %}
  get a privacy policy
 {% endapi-method-summary %}
@@ -644,7 +620,7 @@ about nuonchic
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="/terms-conditions" %}
+{% api-method method="get" host="" path="/user/terms-conditions" %}
 {% api-method-summary %}
  get a terms and conditions
 {% endapi-method-summary %}
