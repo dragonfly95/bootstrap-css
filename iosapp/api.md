@@ -208,22 +208,32 @@ product code ID
 
 ## show bra types
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/product/bras" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/user/product/goods/{prdCd}" %}
 {% api-method-summary %}
 show bra types
 {% endapi-method-summary %}
 
 {% api-method-description %}
-
+ 상품코드로 상품 조회 
 {% endapi-method-description %}
 
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=false %}
-
+{% api-method-parameter name="prdCd" type="integer" required=false %}
+Product Code
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
+
+{% api-method-query-parameters %}
+{% api-method-parameter name="size" type="number" required=false %}
+paging size, default 20
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="page" type="number" required=false %}
+current pageNumber, default 1
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -233,7 +243,65 @@ show bra types
 {% endapi-method-response-example-description %}
 
 ```
-
+{
+    "content": [
+        {
+            "barCd": "8806193513967",
+            "brnId": 5,
+            "brnTblName": "Frenchie",
+            "cost": 24.4,
+            "description": " Comfort bralette totally covered with soft semidull lace of cubic effect ,Minimizing appearance of nipples even wearing without pad by applying soft 2-layer mesh net underneath the cup , With a pad pocket, you can freely insert and remove pad if you want volume, It creates a smooth back line with wide wings without hook and eye , it uses soft, elastic shoulder straps to reduce soreness. ",
+            "detail": "<p>Comfort bralette totally covered with soft semidull lace of cubic effect Minimizing appearance of nipples even wearing without pad by applying soft 2-layer mesh net underneath the cup With a pad pocket, you can freely insert and remove pad if you want volume. It creates a smooth back line with wide wings without hook and eye. it uses soft, elastic shoulder straps to reduce soreness.</p><p>&nbsp;</p><figure class=\"image\"><img src=\"http://localhost:5500/images/20201016/8f5a1e89cc48a5b2c6868e890991179f43441264.png\"></figure>",
+            "exposeDate": "2020-07-09T18:16:00.000+0900",
+            "exposeDateLocal": "2020-07-09 18:16:00",
+            "fileSize": 24544,
+            "imgFilePath": "http://localhost:5500/images/20201016/75dd75cb18730661153a2b1d64b9fd4160458e7b",
+            "instockDate": "2020-07-06T18:16:00.000+0900",
+            "instockDateLocal": "2020-07-06 18:16:00",
+            "inventoryCount": 10,
+            "isDtd": false,
+            "name": "Magnolia lace bralette",
+            "prcId": 1,
+            "prdCd": 2,
+            "prdCdTblName": "BRAS",
+            "prdCtgId": 16,
+            "prdCtgTblName": "BRALARRE",
+            "prdId": 15,
+            "prdSttCd": 1,
+            "prdTypCd": 1,
+            "regDate": "2020-07-14T06:18:01.000+0900",
+            "regDateLocal": "2020-07-14 06:18:01",
+            "retailPrice": 35.0,
+            "updDate": "2020-10-16T10:20:15.000+0900",
+            "updDateLocal": "2020-10-16 10:20:15"
+        }
+    ],
+    "empty": false,
+    "first": true,
+    "last": true,
+    "number": 0,
+    "numberOfElements": 9,
+    "pageable": {
+        "offset": 0,
+        "pageNumber": 0,
+        "pageSize": 20,
+        "paged": true,
+        "sort": {
+            "empty": true,
+            "sorted": false,
+            "unsorted": true
+        },
+        "unpaged": false
+    },
+    "size": 20,
+    "sort": {
+        "empty": true,
+        "sorted": false,
+        "unsorted": true
+    },
+    "totalElements": 9,
+    "totalPages": 1
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
