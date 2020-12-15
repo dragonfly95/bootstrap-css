@@ -2,7 +2,66 @@
 
 ## Product Categories
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/product/categories" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/user/product/codes" %}
+{% api-method-summary %}
+
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+[
+    {
+        "name": "BRAND A~Z",
+        "prdCd": 1
+    },
+    {
+        "name": "BRAS",
+        "prdCd": 2
+    },
+    {
+        "name": "PANTIES",
+        "prdCd": 3
+    },
+    {
+        "name": "SHAPER",
+        "prdCd": 4
+    },
+    {
+        "name": "SWLMWEAR",
+        "prdCd": 5
+    },
+    {
+        "name": "Lounge Wear",
+        "prdCd": 6
+    },
+    {
+        "name": "Night Wear",
+        "prdCd": 7
+    },
+    {
+        "name": "Nursing & Maternity",
+        "prdCd": 8
+    }
+]
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="get" host="https://admin.nuonchic.com" path="/user/product/categories/{codeId}" %}
 {% api-method-summary %}
 product categories
 {% endapi-method-summary %}
@@ -14,8 +73,8 @@ product categories
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=false %}
-
+{% api-method-parameter name="codeId" type="integer" required=false %}
+product code ID
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 {% endapi-method-request %}
@@ -27,7 +86,120 @@ product categories
 {% endapi-method-response-example-description %}
 
 ```
-
+[
+    {
+        "fileSize": 3708119,
+        "imgFilePath": "/images/20200609/cef19142c97117c38a1fc2669945fc1f54a69e27",
+        "name": "Full-cup",
+        "prdCd": 2,
+        "prdCdTblName": "BRAS",
+        "prdCtgId": 2
+    },
+    {
+        "fileSize": 0,
+        "imgFilePath": "/images/ljh.png",
+        "name": "T-SHIRTS",
+        "prdCd": 2,
+        "prdCdTblName": "BRAS",
+        "prdCtgId": 6
+    },
+    {
+        "fileSize": 0,
+        "imgFilePath": "",
+        "name": "Wireless",
+        "prdCd": 2,
+        "prdCdTblName": "BRAS",
+        "prdCtgId": 7
+    },
+    {
+        "fileSize": 0,
+        "imgFilePath": "",
+        "name": "Balconette",
+        "prdCd": 2,
+        "prdCdTblName": "BRAS",
+        "prdCtgId": 8
+    },
+    {
+        "fileSize": 0,
+        "imgFilePath": "",
+        "name": "PUSH-UP",
+        "prdCd": 2,
+        "prdCdTblName": "BRAS",
+        "prdCtgId": 9
+    },
+    {
+        "fileSize": 0,
+        "imgFilePath": "",
+        "name": "NURSHING&MATERNITY",
+        "prdCd": 2,
+        "prdCdTblName": "BRAS",
+        "prdCtgId": 10
+    },
+    {
+        "fileSize": 0,
+        "imgFilePath": "",
+        "name": "STRAPLESS",
+        "prdCd": 2,
+        "prdCdTblName": "BRAS",
+        "prdCtgId": 11
+    },
+    {
+        "fileSize": 0,
+        "imgFilePath": "",
+        "name": "LONG LINE",
+        "prdCd": 2,
+        "prdCdTblName": "BRAS",
+        "prdCtgId": 12
+    },
+    {
+        "fileSize": 0,
+        "imgFilePath": "",
+        "name": "FRONT HOOK",
+        "prdCd": 2,
+        "prdCdTblName": "BRAS",
+        "prdCtgId": 13
+    },
+    {
+        "fileSize": 0,
+        "imgFilePath": "",
+        "name": "CONVERTIBLE",
+        "prdCd": 2,
+        "prdCdTblName": "BRAS",
+        "prdCtgId": 14
+    },
+    {
+        "fileSize": 0,
+        "imgFilePath": "",
+        "name": "SPORTS",
+        "prdCd": 2,
+        "prdCdTblName": "BRAS",
+        "prdCtgId": 15
+    },
+    {
+        "fileSize": 0,
+        "imgFilePath": "",
+        "name": "BRALARRE",
+        "prdCd": 2,
+        "prdCdTblName": "BRAS",
+        "prdCtgId": 16
+    },
+    {
+        "fileSize": 0,
+        "imgFilePath": "",
+        "name": "LINGERIE",
+        "prdCd": 2,
+        "prdCdTblName": "BRAS",
+        "prdCtgId": 17
+    },
+    {
+        "fileSize": null,
+        "imgFilePath": "",
+        "name": "PLUNGING",
+        "prdCd": 2,
+        "prdCdTblName": "BRAS",
+        "prdCtgId": 48
+    }
+]
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
