@@ -581,6 +581,13 @@ about nuonchic
 {% endapi-method-response-example-description %}
 
 ```
+[
+    {
+        "cnt": "aboutus ",
+        "id": 1,
+        "ttl": "ubuntu1sdflj"
+    }
+]
 
 ```
 {% endapi-method-response-example %}
@@ -631,12 +638,6 @@ about nuonchic
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=false %}
-
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
 
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
@@ -645,6 +646,13 @@ about nuonchic
 {% endapi-method-response-example-description %}
 
 ```
+[
+    {
+        "cnt": "제 1 장 환영합니다, 
+        "id": 2, 
+        "ttl": "카카오계정 약관"
+    }
+]
 
 ```
 {% endapi-method-response-example %}
