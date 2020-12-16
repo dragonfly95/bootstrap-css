@@ -928,6 +928,42 @@ apple login
 {% endapi-method-spec %}
 {% endapi-method %}
 
+{% api-method method="get" host="https://admin.nuonchic.com" path="/user/authorization/nuonchic" %}
+{% api-method-summary %}
+nuonchic login
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-body-parameters %}
+{% api-method-parameter name="loginId" type="string" required=false %}
+loginID : email
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="userpass" type="string" required=false %}
+password
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
 {% api-method method="get" host="https://admin.nuonchic.com" path="/findpassword" %}
 {% api-method-summary %}
   비밀번호 찾기
