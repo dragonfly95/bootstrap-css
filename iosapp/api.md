@@ -1194,14 +1194,8 @@ Bearer token
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=false %}
-
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-
 {% api-method-headers %}
-{% api-method-parameter name="Authentication" type="string" required=false %}
+{% api-method-parameter name="Authentication" type="string" required=true %}
 Bearer token
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
@@ -1214,7 +1208,51 @@ Bearer token
 {% endapi-method-response-example-description %}
 
 ```
-
+{
+    "content": [
+        {
+            "fnsDate": "2020-12-18 18:32:05",
+            "usrId": 7,
+            "cnlDate": null,
+            "ordId": 3809,
+            "ordSttCd": 1,
+            "ordDate": "2020-12-18 18:32:05"
+        },
+        {
+            "fnsDate": "2020-12-18 18:32:39",
+            "usrId": 7,
+            "cnlDate": null,
+            "ordId": 5881,
+            "ordSttCd": 1,
+            "ordDate": "2020-12-18 18:32:39"
+        }
+    ],
+    "pageable": {
+        "sort": {
+            "sorted": false,
+            "unsorted": true,
+            "empty": true
+        },
+        "pageSize": 20,
+        "pageNumber": 0,
+        "offset": 0,
+        "paged": true,
+        "unpaged": false
+    },
+    "totalPages": 1,
+    "totalElements": 2,
+    "last": true,
+    "number": 0,
+    "size": 20,
+    "numberOfElements": 2,
+    "sort": {
+        "sorted": false,
+        "unsorted": true,
+        "empty": true
+    },
+    "first": true,
+    "empty": false
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
