@@ -1048,7 +1048,7 @@ about nuonchic
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="" %}
 {% api-method-summary %}
  뉴온식 회원가입후 인증메일 발송 
 {% endapi-method-summary %}
@@ -1082,7 +1082,7 @@ about nuonchic
 
 ## MyPage
 
-{% api-method method="get" host="" path="" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/user/mywishlist" %}
 {% api-method-summary %}
 my wishlist
 {% endapi-method-summary %}
@@ -1098,6 +1098,12 @@ my wishlist
 
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
+
+{% api-method-headers %}
+{% api-method-parameter name="Authentication" type="string" required=false %}
+Bearer token
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -1114,7 +1120,7 @@ my wishlist
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/user/myorder\_history" %}
 {% api-method-summary %}
  order history 
 {% endapi-method-summary %}
@@ -1130,6 +1136,12 @@ my wishlist
 
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
+
+{% api-method-headers %}
+{% api-method-parameter name="Authentication" type="string" required=false %}
+Bearer token
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -1146,9 +1158,9 @@ my wishlist
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/user/myaccount\_detail" %}
 {% api-method-summary %}
-my detail account
+my account detail
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -1162,6 +1174,12 @@ my detail account
 
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
+
+{% api-method-headers %}
+{% api-method-parameter name="Authentication" type="string" required=true %}
+
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -1178,9 +1196,9 @@ my detail account
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="" %}
+{% api-method method="post" host="https://admin.nuonchic.com" path="/user/myaccount\_detail" %}
 {% api-method-summary %}
-save my detail account 
+save my account detail
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -1194,6 +1212,12 @@ save my detail account
 
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
+
+{% api-method-headers %}
+{% api-method-parameter name="Authentication" type="string" required=true %}
+Bearer token
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -1210,7 +1234,7 @@ save my detail account
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/user/myaddressbook" %}
 {% api-method-summary %}
 get  my address book
 {% endapi-method-summary %}
@@ -1242,7 +1266,7 @@ get  my address book
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="" %}
+{% api-method method="post" host="https://admin.nuonchic.com" path="/user/myaddressbook" %}
 {% api-method-summary %}
 write a new address book
 {% endapi-method-summary %}
@@ -1274,7 +1298,7 @@ write a new address book
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="" %}
+{% api-method method="put" host="https://admin.nuonchic.com" path="/user/myaddressbook/{addressId}" %}
 {% api-method-summary %}
 modify my address book
 {% endapi-method-summary %}
@@ -1286,7 +1310,7 @@ modify my address book
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=false %}
+{% api-method-parameter name="addressId" type="integer" required=true %}
 
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
@@ -1306,7 +1330,7 @@ modify my address book
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="" %}
+{% api-method method="delete" host="https://admin.nuonchic.com" path="/user/myaddressbook/{addressId}" %}
 {% api-method-summary %}
 delete my address book
 {% endapi-method-summary %}
@@ -1318,7 +1342,7 @@ delete my address book
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=false %}
+{% api-method-parameter name="addressId" type="integer" required=true %}
 
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
