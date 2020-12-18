@@ -1113,14 +1113,8 @@ my wishlist
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=false %}
-
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-
 {% api-method-headers %}
-{% api-method-parameter name="Authentication" type="string" required=false %}
+{% api-method-parameter name="Authentication" type="string" required=true %}
 Bearer token
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
@@ -1133,7 +1127,56 @@ Bearer token
 {% endapi-method-response-example-description %}
 
 ```
-
+{
+    "content": [
+        {
+            "usrWshListId": 1,
+            "usrId": 7,
+            "prdTblDescription": " Comfort bralette totally covered with soft semidull lace of cubic effect ,Minimizing appearance of nipples even wearing without pad by applying soft 2-layer mesh net underneath the cup , With a pad pocket, you can freely insert and remove pad if you want volume, It creates a smooth back line with wide wings without hook and eye , it uses soft, elastic shoulder straps to reduce soreness. ",
+            "usrTblEmail": "nosignal95@gmail.com",
+            "prdId": 15
+        },
+        {
+            "usrWshListId": 1749,
+            "usrId": 7,
+            "prdTblDescription": null,
+            "usrTblEmail": "nosignal95@gmail.com",
+            "prdId": 2
+        },
+        {
+            "usrWshListId": 3663,
+            "usrId": 7,
+            "prdTblDescription": "팬티",
+            "usrTblEmail": "nosignal95@gmail.com",
+            "prdId": 58
+        }
+    ],
+    "pageable": {
+        "sort": {
+            "sorted": false,
+            "unsorted": true,
+            "empty": true
+        },
+        "pageSize": 20,
+        "pageNumber": 0,
+        "offset": 0,
+        "paged": true,
+        "unpaged": false
+    },
+    "totalPages": 1,
+    "totalElements": 3,
+    "last": true,
+    "number": 0,
+    "size": 20,
+    "numberOfElements": 3,
+    "sort": {
+        "sorted": false,
+        "unsorted": true,
+        "empty": true
+    },
+    "first": true,
+    "empty": false
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
