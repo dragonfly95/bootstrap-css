@@ -842,7 +842,7 @@ password
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="post" host="" path="/user/savepassword" %}
+{% api-method method="post" host="https://admin.nuonchic.com" path="/user/savepassword" %}
 {% api-method-summary %}
  비밀번호 저장
 {% endapi-method-summary %}
@@ -880,7 +880,7 @@ new password
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="/user/aboutus" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/user/aboutus" %}
 {% api-method-summary %}
 about nuonchic
 {% endapi-method-summary %}
@@ -919,7 +919,7 @@ about nuonchic
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="/user/privacy" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/user/privacy" %}
 {% api-method-summary %}
  get a privacy policy
 {% endapi-method-summary %}
@@ -951,7 +951,7 @@ about nuonchic
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="/user/terms-conditions" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/user/terms-conditions" %}
 {% api-method-summary %}
  get a terms and conditions
 {% endapi-method-summary %}
@@ -984,7 +984,7 @@ about nuonchic
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="/user/login" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/user/login" %}
 {% api-method-summary %}
  뉴온식로그인 
 {% endapi-method-summary %}
@@ -1016,7 +1016,7 @@ about nuonchic
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="/user/registration" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/user/registration" %}
 {% api-method-summary %}
  뉴온식 회원가입
 {% endapi-method-summary %}
