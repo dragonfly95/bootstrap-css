@@ -1183,6 +1183,48 @@ Bearer token
 {% endapi-method-spec %}
 {% endapi-method %}
 
+{% api-method method="post" host="" path="/user/mywishlist" %}
+{% api-method-summary %}
+add wishlist one by one
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-headers %}
+{% api-method-parameter name="Authentication" type="string" required=true %}
+Bearer token
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+
+{% api-method-body-parameters %}
+{% api-method-parameter name="prdId" type="integer" required=true %}
+
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="usrId" type="integer" required=true %}
+
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
 {% api-method method="delete" host="" path="/user/mywishlist/{usrWshListId}" %}
 {% api-method-summary %}
 delete my wishlist one by one
