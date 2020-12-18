@@ -1027,11 +1027,31 @@ about nuonchic
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=false %}
+{% api-method-body-parameters %}
+{% api-method-parameter name="firstName" type="string" required=false %}
 
 {% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+
+{% api-method-parameter name="lastName" type="string" required=false %}
+
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="email" type="string" required=false %}
+
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="password" type="string" required=false %}
+
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="dateOfBirth" type="object" required=false %}
+Date type
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="nation" type="string" required=false %}
+
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
