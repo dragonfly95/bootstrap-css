@@ -774,7 +774,7 @@ apple login
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/authorization/nuonchic" %}
+{% api-method method="post" host="https://admin.nuonchic.com" path="/user/authorization/nuonchic" %}
 {% api-method-summary %}
 nuonchic login
 {% endapi-method-summary %}
