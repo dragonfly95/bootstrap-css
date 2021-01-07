@@ -424,7 +424,7 @@ search designer
 
 ## write a review
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/product/review" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/user/product/{prdId}/review" %}
 {% api-method-summary %}
 get a review about product
 {% endapi-method-summary %}
@@ -435,6 +435,18 @@ get a review about product
 
 {% api-method-spec %}
 {% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="prdId" type="number" required=false %}
+ 99
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+
+{% api-method-headers %}
+{% api-method-parameter name="Authentication" type="string" required=false %}
+Bearer Token
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+{% endapi-method-request %}
 
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
@@ -443,7 +455,48 @@ get a review about product
 {% endapi-method-response-example-description %}
 
 ```
-
+{
+    "content": [
+        {
+            "rvwId": 4039,
+            "name": "Gorgeous Silk Bottle",
+            "description": "5br9giuzj1jvfo5e6kl0g0br0ps58e7jsney450wr38sg414j5h51ep5xxq0gcrgk5cg0nqzk79zn5a9b528xm9vyfgn7daehdxulmlpi2jztv4uy1xqsd3e7t4t3t0y6ybsjhzui5us063q72ye2eftb8r331yss6",
+            "rvwScore": 4,
+            "regDate": "2021-01-07T12:25:10.000+0900",
+            "updDate": null,
+            "usrId": 7,
+            "usrTblLoginId": "dbdyd@nuonchic.com",
+            "rvwCtgCd": 2,
+            "rvwCtgTblName": "Delivery",
+            "prdId": 99
+        }
+    ],
+    "pageable": {
+        "sort": {
+            "sorted": false,
+            "unsorted": true,
+            "empty": true
+        },
+        "pageNumber": 0,
+        "pageSize": 20,
+        "offset": 0,
+        "unpaged": false,
+        "paged": true
+    },
+    "totalPages": 1,
+    "last": true,
+    "totalElements": 11,
+    "first": true,
+    "numberOfElements": 11,
+    "size": 20,
+    "number": 0,
+    "sort": {
+        "sorted": false,
+        "unsorted": true,
+        "empty": true
+    },
+    "empty": false
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
