@@ -1013,7 +1013,7 @@ password
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/findpassword" %}
+{% api-method method="post" host="https://admin.nuonchic.com" path="/user/findpassword" %}
 {% api-method-summary %}
   비밀번호 찾기
 {% endapi-method-summary %}
