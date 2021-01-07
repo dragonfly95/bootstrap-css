@@ -1004,7 +1004,9 @@ password
 {% endapi-method-response-example-description %}
 
 ```
-
+{
+    "token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkYmR5ZEBudW9uY2hpYy5jb20iLCJyb2xlIjoidXNlciIsImV4cCI6MTYxMDU5NDY0OCwidXNlcklkIjo3fQ.wK6TSjraJy9F75zo6VBxdn0PTbZw9nMMiW7v2dpgXRvPjyJi-QIdtsB8zk6Swtdzf4z5OP04BxPVJA7TukPnRg"
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
