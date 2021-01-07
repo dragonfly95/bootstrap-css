@@ -566,7 +566,7 @@ Bearer token
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="put" host="https://admin.nuonchic.com" path="/user/product/review/{reviewId}" %}
+{% api-method method="put" host="https://admin.nuonchic.com" path="/user/product/{prdId}/review/{reviewId}/modify" %}
 {% api-method-summary %}
 modify my review
 {% endapi-method-summary %}
@@ -578,16 +578,46 @@ modify my review
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="reviewId" type="integer" required=true %}
+{% api-method-parameter name="prdId" type="number" required=false %}
+Product ID
+{% endapi-method-parameter %}
 
+{% api-method-parameter name="reviewId" type="integer" required=true %}
+Review ID
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 
 {% api-method-headers %}
 {% api-method-parameter name="Authentication" type="string" required=true %}
-
+Bearer Token
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
+
+{% api-method-body-parameters %}
+{% api-method-parameter name="prdId" type="number" required=false %}
+99
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="rvwId" type="string" required=true %}
+4029
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="name" type="string" required=false %}
+Georgeous Silk Bottle
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="description" type="string" required=false %}
+
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="rvwScore" type="number" required=false %}
+4
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="rvwCtgCd" type="number" required=false %}
+1~5
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -597,7 +627,10 @@ modify my review
 {% endapi-method-response-example-description %}
 
 ```
-
+{
+    "code": 100,
+    "message": "ok"
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
