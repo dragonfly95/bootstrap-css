@@ -450,7 +450,7 @@ get a review about product
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="post" host="https://admin.nuonchic.com" path="/user/product/review" %}
+{% api-method method="post" host="https://admin.nuonchic.com" path="/user/product/{prdId}/review/new" %}
 {% api-method-summary %}
 write a review
 {% endapi-method-summary %}
@@ -462,8 +462,8 @@ write a review
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=false %}
-
+{% api-method-parameter name="prdId" type="number" required=true %}
+product ID
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 
@@ -472,6 +472,28 @@ write a review
 Bearer token
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
+
+{% api-method-body-parameters %}
+{% api-method-parameter name="name" type="string" required=false %}
+
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="description" type="string" required=false %}
+
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="rvwScore" type="number" required=false %}
+
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="rvwCtgCd" type="number" required=false %}
+
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="prdId" type="number" required=false %}
+
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -481,7 +503,10 @@ Bearer token
 {% endapi-method-response-example-description %}
 
 ```
-
+{
+    "code": 100,
+    "message": "ok"
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
