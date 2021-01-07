@@ -474,24 +474,24 @@ Bearer token
 {% endapi-method-headers %}
 
 {% api-method-body-parameters %}
-{% api-method-parameter name="name" type="string" required=false %}
-
+{% api-method-parameter name="name" type="string" required=true %}
+ Gorgeous Silk Bottle
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="description" type="string" required=false %}
-
+{% api-method-parameter name="description" type="string" required=true %}
+ description comment
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="rvwScore" type="number" required=false %}
-
+{% api-method-parameter name="rvwScore" type="number" required=true %}
+1~5
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="rvwCtgCd" type="number" required=false %}
-
+{% api-method-parameter name="rvwCtgCd" type="number" required=true %}
+2
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="prdId" type="number" required=false %}
-
+{% api-method-parameter name="prdId" type="number" required=true %}
+99
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
 {% endapi-method-request %}
