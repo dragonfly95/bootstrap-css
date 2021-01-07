@@ -436,13 +436,13 @@ get a review about product
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="prdId" type="number" required=false %}
+{% api-method-parameter name="prdId" type="number" required=true %}
  99
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 
 {% api-method-headers %}
-{% api-method-parameter name="Authentication" type="string" required=false %}
+{% api-method-parameter name="Authentication" type="string" required=true %}
 Bearer Token
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
@@ -578,7 +578,7 @@ modify my review
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="prdId" type="number" required=false %}
+{% api-method-parameter name="prdId" type="number" required=true %}
 Product ID
 {% endapi-method-parameter %}
 
@@ -637,7 +637,7 @@ Georgeous Silk Bottle
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="delete" host="https://admin.nuonchic.com" path="/user/product/review/{reviewId}" %}
+{% api-method method="delete" host="https://admin.nuonchic.com" path="/user/product/{prdId}review/{reviewId}/delete" %}
 {% api-method-summary %}
 delete my review
 {% endapi-method-summary %}
@@ -649,10 +649,20 @@ delete my review
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=false %}
+{% api-method-parameter name="prdId" type="number" required=true %}
+Product ID
+{% endapi-method-parameter %}
 
+{% api-method-parameter name="reviewId" type="number" required=true %}
+Review ID
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
+
+{% api-method-headers %}
+{% api-method-parameter name="Authentication" type="string" required=true %}
+Bearer Token
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
 {% endapi-method-request %}
 
 {% api-method-response %}
