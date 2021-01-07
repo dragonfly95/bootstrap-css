@@ -679,7 +679,75 @@ Bearer Token
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="post" host="https://admin.nuonchic.com" path="/user/product/mywishlist/toggle" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/user/mywishlist" %}
+{% api-method-summary %}
+wishlist
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-headers %}
+{% api-method-parameter name="Authentication" type="string" required=false %}
+Bearer Token
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+{
+    "content": [
+        {
+            "usrWshListId": 20,
+            "prdId": 52,
+            "usrId": 113,
+            "ordCnt": 7,
+            "prdTblDescription": "팬티",
+            "usrTblEmail": "jermaine.schumm@gmail.com"
+        }
+    ],
+    "pageable": {
+        "sort": {
+            "sorted": false,
+            "unsorted": true,
+            "empty": true
+        },
+        "pageNumber": 0,
+        "pageSize": 20,
+        "offset": 0,
+        "unpaged": false,
+        "paged": true
+    },
+    "totalPages": 1,
+    "last": true,
+    "totalElements": 2,
+    "first": true,
+    "numberOfElements": 2,
+    "size": 20,
+    "number": 0,
+    "sort": {
+        "sorted": false,
+        "unsorted": true,
+        "empty": true
+    },
+    "empty": false
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="post" host="https://admin.nuonchic.com" path="/user/mywishlist/toggle" %}
 {% api-method-summary %}
 wishlist toggle
 {% endapi-method-summary %}
