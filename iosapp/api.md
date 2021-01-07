@@ -1083,7 +1083,7 @@ new password
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/aboutus" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/user/policy/aboutnuonchic" %}
 {% api-method-summary %}
 about nuonchic
 {% endapi-method-summary %}
@@ -1122,7 +1122,7 @@ about nuonchic
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/privacy" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/user/policy/privacy" %}
 {% api-method-summary %}
  get a privacy policy
 {% endapi-method-summary %}
@@ -1154,7 +1154,7 @@ about nuonchic
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/terms-conditions" %}
+{% api-method method="get" host="https://admin.nuonchic.com" path="/user/policy/terms\_conditions" %}
 {% api-method-summary %}
  get a terms and conditions
 {% endapi-method-summary %}
