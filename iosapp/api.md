@@ -1264,7 +1264,10 @@ Date type
 {% endapi-method-response-example-description %}
 
 ```
-
+{
+    "code": 100,
+    "message": "ok"
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
