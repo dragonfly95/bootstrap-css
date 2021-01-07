@@ -679,7 +679,7 @@ Bearer Token
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="post" host="" path="" %}
+{% api-method method="post" host="https://admin.nuonchic.com" path="/user/product/mywishlist/toggle" %}
 {% api-method-summary %}
 wishlist toggle
 {% endapi-method-summary %}
@@ -695,6 +695,18 @@ wishlist toggle
 
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
+
+{% api-method-headers %}
+{% api-method-parameter name="Authentication" type="string" required=true %}
+Bearer Token
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+
+{% api-method-body-parameters %}
+{% api-method-parameter name="prdId" type="number" required=true %}
+99
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
