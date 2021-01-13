@@ -5,5 +5,5 @@
 ## IOS App <a id="iosapp"></a>
 
 * [Product / Payment / MyPage](iosapp/api.md)
-* [etc function](iosapp/etc.md)
+* [app landingpage function](iosapp/etc.md)
 
