@@ -28,6 +28,38 @@ Main slide
 {% endapi-method-spec %}
 {% endapi-method %}
 
+{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/main/newarrivals" %}
+{% api-method-summary %}
+Main new arrivals
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="" type="string" required=false %}
+
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
 {% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/main/events" %}
 {% api-method-summary %}
 event list
