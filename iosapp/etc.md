@@ -1,5 +1,33 @@
 # app landingpage function
 
+{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/main/slide" %}
+{% api-method-summary %}
+Main slide
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+{
+  "slide": "OK"
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
 {% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/main/events" %}
 {% api-method-summary %}
 event list
