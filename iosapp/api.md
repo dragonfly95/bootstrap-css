@@ -987,11 +987,11 @@ nuonchic login
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-body-parameters %}
-{% api-method-parameter name="loginId" type="string" required=false %}
+{% api-method-parameter name="username" type="string" required=true %}
 loginID : email
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="userpass" type="string" required=false %}
+{% api-method-parameter name="password" type="string" required=true %}
 password
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
