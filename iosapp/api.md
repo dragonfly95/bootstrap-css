@@ -1009,6 +1009,23 @@ password
 }
 ```
 {% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=500 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+{
+    "status":500
+    ,"path":"/events"
+    ,"errorMessage":"No property evddddtId found for type EvtTbl!"
+    ,"timeStamp":"Wed Jan 13 12:28:30 KST 2021"
+    ,"trace":null
+}
+
+```
+{% endapi-method-response-example %}
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
