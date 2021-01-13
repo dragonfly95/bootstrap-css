@@ -2,7 +2,7 @@
 
 ## Product Categories
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/product/codes" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/product/codes" %}
 {% api-method-summary %}
 product code
 {% endapi-method-summary %}
@@ -61,7 +61,7 @@ product code
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/product/categories/{codeId}" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/product/categories/{codeId}" %}
 {% api-method-summary %}
 product categories
 {% endapi-method-summary %}
@@ -208,7 +208,7 @@ product code ID
 
 ## show bra types
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/product/goods/{prdCd}" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/product/goods/{prdCd}" %}
 {% api-method-summary %}
 show Product code
 {% endapi-method-summary %}
@@ -308,7 +308,7 @@ current pageNumber, default value 1
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/product/allbrands" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/product/allbrands" %}
 {% api-method-summary %}
 show all brands
 {% endapi-method-summary %}
@@ -350,7 +350,7 @@ paging size, default value 20
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/product/goods/{prdCd}" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/product/goods/{prdCd}" %}
 {% api-method-summary %}
 product list sorted by product code
 {% endapi-method-summary %}
@@ -388,7 +388,7 @@ paging size, default 20
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/product/designers" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/product/designers" %}
 {% api-method-summary %}
 search designer
 {% endapi-method-summary %}
@@ -424,7 +424,7 @@ search designer
 
 ## write a review
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/product/{prdId}/review" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/product/{prdId}/review" %}
 {% api-method-summary %}
 get a review about product
 {% endapi-method-summary %}
@@ -503,7 +503,7 @@ Bearer Token
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="post" host="https://admin.nuonchic.com" path="/user/product/{prdId}/review/new" %}
+{% api-method method="post" host="https://api.nuonchic.com" path="/v1/api/product/{prdId}/review/new" %}
 {% api-method-summary %}
 write a review
 {% endapi-method-summary %}
@@ -566,7 +566,7 @@ Bearer token
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="put" host="https://admin.nuonchic.com" path="/user/product/{prdId}/review/{reviewId}/modify" %}
+{% api-method method="put" host="https://api.nuonchic.com" path="/v1/api/product/{prdId}/review/{reviewId}/modify" %}
 {% api-method-summary %}
 modify my review
 {% endapi-method-summary %}
@@ -637,7 +637,7 @@ Georgeous Silk Bottle
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="delete" host="https://admin.nuonchic.com" path="/user/product/{prdId}review/{reviewId}/delete" %}
+{% api-method method="delete" host="https://api.nuonchic.com" path="/v1/api/product/{prdId}review/{reviewId}/delete" %}
 {% api-method-summary %}
 delete my review
 {% endapi-method-summary %}
@@ -679,7 +679,7 @@ Bearer Token
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/mywishlist" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/mywishlist" %}
 {% api-method-summary %}
 wishlist
 {% endapi-method-summary %}
@@ -747,7 +747,7 @@ Bearer Token
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="post" host="https://admin.nuonchic.com" path="/user/mywishlist/toggle" %}
+{% api-method method="post" host="https://api.nuonchic.com" path="/v1/api/mywishlist/toggle" %}
 {% api-method-summary %}
 wishlist toggle
 {% endapi-method-summary %}
@@ -793,7 +793,7 @@ Bearer Token
 
 ##  상품상세
 
-{% api-method method="get" host="" path="/user/product/detail/{productId}" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/product/detail/{productId}" %}
 {% api-method-summary %}
  상품코드의 상세 
 {% endapi-method-summary %}
@@ -825,7 +825,7 @@ Bearer Token
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="/user/cart/create" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/cart/create" %}
 {% api-method-summary %}
 장바구니 담기
 {% endapi-method-summary %}
@@ -857,7 +857,7 @@ Bearer Token
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="/user/pay" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/pay" %}
 {% api-method-summary %}
 payment
 {% endapi-method-summary %}
@@ -891,7 +891,7 @@ payment
 
 ## 로그인 
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/oauth2/authorization/facebook" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="/oauth2/authorization/facebook" %}
 {% api-method-summary %}
 facebook login 
 {% endapi-method-summary %}
@@ -919,7 +919,7 @@ facebook login
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/oauth2/authorization/google" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="/oauth2/authorization/google" %}
 {% api-method-summary %}
 google login
 {% endapi-method-summary %}
@@ -947,7 +947,7 @@ google login
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/oauth2/authorization/apple" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="/oauth2/authorization/apple" %}
 {% api-method-summary %}
 apple login
 {% endapi-method-summary %}
@@ -975,7 +975,7 @@ apple login
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="post" host="https://admin.nuonchic.com" path="/user/authorization/nuonchic" %}
+{% api-method method="post" host="https://api.nuonchic.com" path="/v1/api/authorization/nuonchic" %}
 {% api-method-summary %}
 nuonchic login
 {% endapi-method-summary %}
@@ -1030,7 +1030,7 @@ password
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="post" host="https://admin.nuonchic.com" path="/user/findpassword" %}
+{% api-method method="post" host="https://api.nuonchic.com" path="/v1/api/findpassword" %}
 {% api-method-summary %}
   비밀번호 찾기
 {% endapi-method-summary %}
@@ -1062,7 +1062,7 @@ password
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="post" host="https://admin.nuonchic.com" path="/user/savepassword" %}
+{% api-method method="post" host="https://api.nuonchic.com" path="/v1/api/savepassword" %}
 {% api-method-summary %}
  비밀번호 저장
 {% endapi-method-summary %}
@@ -1100,7 +1100,7 @@ new password
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/policy/aboutnuonchic" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/policy/aboutnuonchic" %}
 {% api-method-summary %}
 about nuonchic
 {% endapi-method-summary %}
@@ -1139,7 +1139,7 @@ about nuonchic
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/policy/privacy" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/policy/privacy" %}
 {% api-method-summary %}
  get a privacy policy
 {% endapi-method-summary %}
@@ -1171,7 +1171,7 @@ about nuonchic
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/policy/terms\_conditions" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/policy/terms\_conditions" %}
 {% api-method-summary %}
  get a terms and conditions
 {% endapi-method-summary %}
@@ -1204,7 +1204,7 @@ about nuonchic
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/registration" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/registration" %}
 {% api-method-summary %}
  뉴온식 회원가입
 {% endapi-method-summary %}
@@ -1259,7 +1259,7 @@ Date type
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="" %}
 {% api-method-summary %}
  뉴온식 회원가입후 인증메일 발송 
 {% endapi-method-summary %}
@@ -1293,7 +1293,7 @@ Date type
 
 ## MyPage
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/mywishlist" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/mywishlist" %}
 {% api-method-summary %}
 my wishlist
 {% endapi-method-summary %}
@@ -1374,7 +1374,7 @@ Bearer token
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="post" host="" path="/user/mywishlist" %}
+{% api-method method="post" host="https://api.nuonchic.com" path="/v1/api/mywishlist" %}
 {% api-method-summary %}
 add wishlist one by one
 {% endapi-method-summary %}
@@ -1416,7 +1416,7 @@ Bearer token
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="delete" host="" path="/user/mywishlist/{usrWshListId}" %}
+{% api-method method="delete" host="https://api.nuonchic.com" path="/v1/api/mywishlist/{usrWshListId}" %}
 {% api-method-summary %}
 delete my wishlist one by one
 {% endapi-method-summary %}
@@ -1448,7 +1448,7 @@ delete my wishlist one by one
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/myorder\_history" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/myorder\_history" %}
 {% api-method-summary %}
  order history 
 {% endapi-method-summary %}
@@ -1524,7 +1524,7 @@ Bearer token
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/myaccount\_detail" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/myaccount\_detail" %}
 {% api-method-summary %}
 my account detail
 {% endapi-method-summary %}
@@ -1562,7 +1562,7 @@ my account detail
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="post" host="https://admin.nuonchic.com" path="/user/myaccount\_detail" %}
+{% api-method method="post" host="https://api.nuonchic.com" path="/v1/api/myaccount\_detail" %}
 {% api-method-summary %}
 save my account detail
 {% endapi-method-summary %}
@@ -1600,7 +1600,7 @@ Bearer token
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://admin.nuonchic.com" path="/user/myaddressbook" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/myaddressbook" %}
 {% api-method-summary %}
 get  my address book
 {% endapi-method-summary %}
@@ -1632,7 +1632,7 @@ get  my address book
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="post" host="https://admin.nuonchic.com" path="/user/myaddressbook" %}
+{% api-method method="post" host="https://api.nuonchic.com" path="/v1/api/myaddressbook" %}
 {% api-method-summary %}
 write a new address book
 {% endapi-method-summary %}
@@ -1664,7 +1664,7 @@ write a new address book
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="put" host="https://admin.nuonchic.com" path="/user/myaddressbook/{addressId}" %}
+{% api-method method="put" host="https://api.nuonchic.com" path="/v1/api/myaddressbook/{addressId}" %}
 {% api-method-summary %}
 modify my address book
 {% endapi-method-summary %}
@@ -1696,7 +1696,7 @@ modify my address book
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="delete" host="https://admin.nuonchic.com" path="/user/myaddressbook/{addressId}" %}
+{% api-method method="delete" host="https://api.nuonchic.com" path="/v1/api/myaddressbook/{addressId}" %}
 {% api-method-summary %}
 delete my address book
 {% endapi-method-summary %}
