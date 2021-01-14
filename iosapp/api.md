@@ -1204,7 +1204,7 @@ about nuonchic
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/registration" %}
+{% api-method method="post" host="https://api.nuonchic.com" path="/v1/api/registration" %}
 {% api-method-summary %}
  뉴온식 회원가입
 {% endapi-method-summary %}
@@ -1220,27 +1220,27 @@ about nuonchic
 GOOGLE, FACEBOOK, APPLE, NUONCHIC
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="firstName" type="string" required=false %}
+{% api-method-parameter name="firstName" type="string" required=true %}
 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="lastName" type="string" required=false %}
+{% api-method-parameter name="lastName" type="string" required=true %}
 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="email" type="string" required=false %}
+{% api-method-parameter name="email" type="string" required=true %}
 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="password" type="string" required=false %}
+{% api-method-parameter name="password" type="string" required=true %}
 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="dateOfBirth" type="object" required=false %}
+{% api-method-parameter name="dateOfBirth" type="object" required=true %}
 Date type
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="nation" type="string" required=false %}
+{% api-method-parameter name="nation" type="string" required=true %}
 
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
