@@ -1216,6 +1216,10 @@ about nuonchic
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-body-parameters %}
+{% api-method-parameter name="domainType" type="string" required=true %}
+GOOGLE, FACEBOOK, APPLE, NUONCHIC
+{% endapi-method-parameter %}
+
 {% api-method-parameter name="firstName" type="string" required=false %}
 
 {% endapi-method-parameter %}
