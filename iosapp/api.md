@@ -793,7 +793,7 @@ Bearer Token
 
 ##  상품상세
 
-{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/product/detail/{productId}" %}
+{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/product/detailview/{productId}" %}
 {% api-method-summary %}
  상품코드의 상세 
 {% endapi-method-summary %}
