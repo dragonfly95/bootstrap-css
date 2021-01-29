@@ -350,6 +350,106 @@ paging size, default value 20
 {% endapi-method-spec %}
 {% endapi-method %}
 
+{% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/product/allbrands/{brnId}" %}
+{% api-method-summary %}
+brand detail &  product list
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="brnId" type="integer" required=true %}
+Brand Id
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+{
+    "list": {
+        "content": [
+            {
+                "name": "Aline",
+                "description": "This full coverage t-shirt bra elevates your everyday essentials with its subtle monocromatic jacquard stripes. The bandless design is especially made for shorter upper torso women. Inclusive sizing available.",
+                "fileSize": 508107,
+                "imgFilePath": "https://admin.nuonchic.com/images/20210113/4481c00067018b0a489131e53e8a65a6e6d1f71d",
+                "prcId": 1,
+                "inventoryCount": 10,
+                "cost": 10.0,
+                "retailPrice": 20.0,
+                "instockDate": "2021-01-13T10:49:00.000+0900",
+                "exposeDate": "2021-01-17T10:49:00.000+0900",
+                "barCd": "",
+                "prdCd": 1,
+                "prdCtgId": 6,
+                "prdTypCd": 1,
+                "updDate": "2021-01-13T11:36:58.000+0900",
+                "regDate": "2021-01-13T11:36:58.000+0900",
+                "prdId": 62,
+                "prdSttCd": 1,
+                "detail": "",
+                "brnId": 1,
+                "updDateLocal": "2021-01-13 02:36:58",
+                "instockDateLocal": "2021-01-13 01:49:00",
+                "exposeDateLocal": "2021-01-17 01:49:00",
+                "prdCtgTblName": "Full Coverage",
+                "brnTblName": "Nuonchic",
+                "prdCdTblName": "BRAS",
+                "isDtd": false,
+                "regDateLocal": "2021-01-13 02:36:58"
+            }
+        ],
+        "pageable": {
+            "sort": {
+                "sorted": false,
+                "unsorted": true,
+                "empty": true
+            },
+            "offset": 0,
+            "pageNumber": 0,
+            "pageSize": 20,
+            "unpaged": false,
+            "paged": true
+        },
+        "totalElements": 1,
+        "last": true,
+        "totalPages": 1,
+        "number": 0,
+        "sort": {
+            "sorted": false,
+            "unsorted": true,
+            "empty": true
+        },
+        "size": 20,
+        "first": true,
+        "numberOfElements": 1,
+        "empty": false
+    },
+    "brand": {
+        "brnId": 1,
+        "name": "Nuonchic",
+        "imgFilePath": "https://admin.nuonchic.com/images/20200807/b48126961e989e327bd6954943b557169bc4b7aa",
+        "fileSize": 257997,
+        "description": "Nuonchic",
+        "regDate": "2020-06-09T04:06:47.000+0900"
+    }
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
 {% api-method method="get" host="https://api.nuonchic.com" path="/v1/api/product/goods/{prdCd}" %}
 {% api-method-summary %}
 product list sorted by product code
