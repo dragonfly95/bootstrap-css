@@ -813,12 +813,14 @@ Bearer Token
 {
     "content": [
         {
-            "usrWshListId": 20,
-            "prdId": 52,
-            "usrId": 113,
-            "ordCnt": 7,
-            "prdTblDescription": "팬티",
-            "usrTblEmail": "jermaine.schumm@gmail.com"
+            "usrWshListId": 5936,
+            "prdId": 15,
+            "usrId": 7,
+            "ordCnt": null,
+            "prdTblName": "Magnolia lace bralette",
+            "prdTblImgFilePath": "https://admin.nuonchic.com/images/20200723/4b004a2d299f9e034a733ccfe153144eb5d8f844",
+            "prdTblBrnTblName": "Frenchie",
+            "prdTblRetailPrice": "35.0"
         }
     ],
     "pageable": {
@@ -827,24 +829,24 @@ Bearer Token
             "unsorted": true,
             "empty": true
         },
-        "pageNumber": 0,
-        "pageSize": 20,
         "offset": 0,
-        "unpaged": false,
-        "paged": true
+        "pageSize": 20,
+        "pageNumber": 0,
+        "paged": true,
+        "unpaged": false
     },
+    "totalElements": 1,
     "totalPages": 1,
     "last": true,
-    "totalElements": 2,
+    "numberOfElements": 1,
     "first": true,
-    "numberOfElements": 2,
-    "size": 20,
     "number": 0,
     "sort": {
         "sorted": false,
         "unsorted": true,
         "empty": true
     },
+    "size": 20,
     "empty": false
 }
 ```
