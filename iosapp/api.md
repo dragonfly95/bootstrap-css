@@ -552,6 +552,12 @@ get a review about product
 Bearer Token
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
+
+{% api-method-query-parameters %}
+{% api-method-parameter name="rvwCtgCd" type="number" required=false %}
+Product Review \(1\) / Delivery Review\(2\)
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
